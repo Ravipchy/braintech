@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Bot, LineChart, Code, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Bot, LineChart, Code } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatedOnScroll } from "@/components/animated-on-scroll";
+import { Typewriter } from "@/components/typewriter";
 
 export default function Home() {
   const services = [
@@ -52,46 +54,50 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card">
+      <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
-            Innovating the Future with Intelligent Technology
-          </h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-            We build cutting-edge solutions that empower businesses to thrive in the digital age.
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg">
-              <Link href="/services">Explore Our Services</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/contact">Get in Touch</Link>
-            </Button>
-          </div>
+          <AnimatedOnScroll animation="fadeInUp">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
+              Innovating the Future with <Typewriter text="Intelligent Technology" />
+            </h1>
+            <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+              We build cutting-edge solutions that empower businesses to thrive in the digital age.
+            </p>
+            <div className="mt-8 flex justify-center gap-4">
+              <Button asChild size="lg" className="transition-transform hover:scale-105">
+                <Link href="/services">Explore Our Services</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="transition-transform hover:scale-105">
+                <Link href="/contact">Get in Touch</Link>
+              </Button>
+            </div>
+          </AnimatedOnScroll>
         </div>
       </section>
 
       <section id="services" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center">
+          <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Services</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Delivering excellence and innovation in every project.
             </p>
-          </div>
+          </AnimatedOnScroll>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {services.map((service) => (
-              <Card key={service.title} className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="mt-6">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
+            {services.map((service, index) => (
+              <AnimatedOnScroll key={service.title} animation={index % 2 === 0 ? "fadeInLeft" : "fadeInRight"} delay={index * 0.1}>
+                <Card className="text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                  <CardHeader>
+                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+                      {service.icon}
+                    </div>
+                    <CardTitle className="mt-6">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{service.description}</p>
+                  </CardContent>
+                </Card>
+              </AnimatedOnScroll>
             ))}
           </div>
         </div>
@@ -99,12 +105,12 @@ export default function Home() {
 
       <section id="testimonials" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center">
+           <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">What Our Clients Say</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Trusted by leading companies worldwide.
             </p>
-          </div>
+          </AnimatedOnScroll>
           <Carousel className="mt-12 w-full max-w-4xl mx-auto" opts={{ loop: true }}>
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
@@ -131,23 +137,24 @@ export default function Home() {
       
       <section id="partners" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center">
+           <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Partners</h2>
             <p className="mt-4 text-lg text-muted-foreground">
               We are proud to collaborate with industry leaders.
             </p>
-          </div>
+          </AnimatedOnScroll>
           <div className="mt-12 flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {partners.map((partner) => (
-              <Image 
-                key={partner.name}
-                src={partner.logo} 
-                alt={`${partner.name} logo`}
-                width={150}
-                height={50}
-                data-ai-hint={partner.hint}
-                className="opacity-60 hover:opacity-100 transition-opacity duration-300"
-              />
+            {partners.map((partner, i) => (
+               <AnimatedOnScroll key={partner.name} animation="fadeInUp" delay={i * 0.1}>
+                  <Image 
+                    src={partner.logo} 
+                    alt={`${partner.name} logo`}
+                    width={150}
+                    height={50}
+                    data-ai-hint={partner.hint}
+                    className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  />
+               </AnimatedOnScroll>
             ))}
           </div>
         </div>

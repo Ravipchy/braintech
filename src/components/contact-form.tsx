@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -15,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Lightbulb } from "lucide-react";
+import { motion } from "framer-motion";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -65,19 +67,21 @@ export function ContactForm() {
 
   if (suggestion) {
     return (
-      <Card className="bg-primary/5 border-primary/20">
-        <CardHeader>
-          <div className="flex items-center gap-3">
-            <Lightbulb className="w-8 h-8 text-primary" />
-            <CardTitle className="text-primary font-headline">A Suggestion For You</CardTitle>
-          </div>
-          <CardDescription>Based on your inquiry, you might find this interesting:</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-foreground">{suggestion.suggestion}</p>
-          <Button onClick={() => setSuggestion(null)} className="mt-6 w-full">Send another message</Button>
-        </CardContent>
-      </Card>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <Card className="bg-primary/5 border-primary/20">
+          <CardHeader>
+            <div className="flex items-center gap-3">
+              <Lightbulb className="w-8 h-8 text-primary" />
+              <CardTitle className="text-primary font-headline">A Suggestion For You</CardTitle>
+            </div>
+            <CardDescription>Based on your inquiry, you might find this interesting:</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-foreground">{suggestion.suggestion}</p>
+            <Button onClick={() => setSuggestion(null)} className="mt-6 w-full">Send another message</Button>
+          </CardContent>
+        </Card>
+      </motion.div>
     );
   }
 
@@ -152,15 +156,18 @@ export function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={loading} className="w-full">
-              {loading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
-                </>
-              ) : (
-                "Submit & Get Suggestion"
-              )}
+            <Button type="submit" disabled={loading} className="w-full relative overflow-hidden group">
+               <span className="absolute w-full h-full bg-primary/20 left-0 top-0 scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-300"></span>
+               <span className="relative">
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Submit & Get Suggestion"
+                )}
+              </span>
             </Button>
           </form>
         </Form>

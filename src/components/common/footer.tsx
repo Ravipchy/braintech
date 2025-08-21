@@ -18,25 +18,25 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground">Quick Links</h3>
             <ul className="mt-4 space-y-2 text-sm">
-              <li><Link href="/about" className="text-muted-foreground hover:text-primary">About Us</Link></li>
-              <li><Link href="/services" className="text-muted-foreground hover:text-primary">Services</Link></li>
-              <li><Link href="/careers" className="text-muted-foreground hover:text-primary">Careers</Link></li>
-              <li><Link href="/contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
+              <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
+              <li><Link href="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-foreground">Connect With Us</h3>
             <p className="mt-4 text-sm text-muted-foreground">contact@braintechtechnology.com</p>
             <div className="mt-4 flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary">
+              <Link href="#" className="text-muted-foreground hover:text-primary transition-transform hover:scale-125">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
+              <Link href="#" className="text-muted-foreground hover:text-primary transition-transform hover:scale-125">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
+              <Link href="#" className="text-muted-foreground hover:text-primary transition-transform hover:scale-125">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>

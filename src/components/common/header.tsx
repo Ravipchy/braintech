@@ -1,8 +1,9 @@
+
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, BrainCircuit } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -20,11 +21,23 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-card shadow-sm">
+    <header className={cn(
+        "sticky top-0 z-50 w-full border-b transition-colors duration-300",
+        isScrolled ? "bg-card/95 backdrop-blur-sm" : "bg-card"
+      )}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <BrainCircuit className="h-6 w-6 text-primary" />
@@ -36,9 +49,10 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
+                "relative text-sm font-medium transition-colors hover:text-primary",
+                "after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-full after:bg-primary after:origin-center after:scale-x-0 after:transition-transform hover:after:scale-x-100",
                 pathname === link.href
-                  ? "text-primary"
+                  ? "text-primary after:scale-x-100"
                   : "text-muted-foreground"
               )}
             >

@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -51,33 +52,39 @@ export default function ServicesPage() {
     <>
       <section className="w-full py-20 md:py-32 bg-card">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">Our Services</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-            Comprehensive technology solutions designed for impact and scale.
-          </p>
+          <AnimatedOnScroll animation="fadeInUp">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">Our Services</h1>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+              Comprehensive technology solutions designed for impact and scale.
+            </p>
+          </AnimatedOnScroll>
         </div>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Card key={service.title} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src={service.imageUrl}
-                  alt={service.title}
-                  width={600}
-                  height={400}
-                  data-ai-hint={service.hint}
-                  className="w-full h-48 object-cover"
-                />
-                <CardHeader>
-                  <CardTitle>{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription>{service.description}</CardDescription>
-                </CardContent>
-              </Card>
+            {services.map((service, index) => (
+              <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
+                <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  <div className="overflow-hidden">
+                    <Image
+                      src={service.imageUrl}
+                      alt={service.title}
+                      width={600}
+                      height={400}
+                      data-ai-hint={service.hint}
+                      className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <CardDescription>{service.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </AnimatedOnScroll>
             ))}
           </div>
         </div>
