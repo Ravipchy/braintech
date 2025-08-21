@@ -16,6 +16,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
+  { href: "/verify-certificate", label: "Verify Certificate" },
 ];
 
 export function Header() {
