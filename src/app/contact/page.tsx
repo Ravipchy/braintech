@@ -63,6 +63,30 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      
+      <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold font-headline">📍 Visit Us</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              Near BM College, Rahika, Madhubani, Bihar, 847211
+            </p>
+          </div>
+          <div className="mt-8">
+            <div className="aspect-video overflow-hidden rounded-xl shadow-lg">
+                <iframe 
+                    src="https://www.google.com/maps?q=BM+College+Rahika+Madhubani+Bihar+847211&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border:0 }}
+                    allowFullScreen={true}
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
