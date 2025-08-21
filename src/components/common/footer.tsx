@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BrainCircuit, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -8,8 +9,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           <div className="flex flex-col gap-2">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-                <BrainCircuit className="h-6 w-6 text-primary" />
-                <span className="font-headline">BrainTech</span>
+                <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
             </Link>
             <p className="text-muted-foreground text-sm">
               Innovating the Future with Intelligent Technology.

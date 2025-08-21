@@ -4,7 +4,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, BrainCircuit } from "lucide-react";
+import { Menu } from "lucide-react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -41,8 +42,7 @@ export function Header() {
       )}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <BrainCircuit className="h-6 w-6 text-primary" />
-          <span className="font-headline">BrainTech</span>
+          <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
         </Link>
         <nav className="hidden md:flex gap-6">
           {navLinks.map((link) => (
@@ -72,8 +72,7 @@ export function Header() {
             <SheetContent side="right">
               <div className="flex flex-col gap-6 p-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={closeMobileMenu}>
-                  <BrainCircuit className="h-6 w-6 text-primary" />
-                   <span className="font-headline">BrainTech</span>
+                  <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (
