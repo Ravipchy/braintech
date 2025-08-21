@@ -103,7 +103,7 @@ export default function CareersPage() {
                       </div>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="p-6 bg-white rounded-b-md border-x border-b">
+                  <AccordionContent className="p-6 bg-white dark:bg-card rounded-b-md border-x border-b">
                     <p className="mb-6">{job.description}</p>
                     
                     <h4 className="font-semibold mb-2">Responsibilities:</h4>

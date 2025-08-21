@@ -55,7 +55,15 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+        <Image 
+            src="https://placehold.co/1920x1080.png"
+            alt="Hero Background"
+            layout="fill"
+            objectFit="cover"
+            className="absolute inset-0 w-full h-full object-cover z-0 opacity-10"
+            data-ai-hint="abstract technology"
+        />
+        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <AnimatedOnScroll animation="fadeInUp">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
               Innovating the Future with <Typewriter text="Intelligent Technology" />
