@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-card border-t">
       <div className="container mx-auto px-4 py-8 md:px-6">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-2">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
                 <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
@@ -20,11 +20,21 @@ export function Footer() {
             <h3 className="font-semibold text-foreground">Quick Links</h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
               <li><Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
               <li><Link href="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
               <li><Link href="/verify-certificate" className="text-muted-foreground hover:text-primary transition-colors">Verify Certificate</Link></li>
+            </ul>
+          </div>
+           <div>
+            <h3 className="font-semibold text-foreground">Our Services</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Web Development</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Mobile App Development</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">UI/UX Design</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">AI & Machine Learning</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Cloud Solutions</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">IT Consulting</Link></li>
             </ul>
           </div>
           <div>
