@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool, Users, Briefcase, Star, ArrowRight, Award, HeartHandshake, Clock, Headset } from "lucide-react";
+import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool, Users, Briefcase, Star, ArrowRight, Award, HeartHandshake, Clock, Headset, Rocket, Target, Lightbulb, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
@@ -35,6 +35,38 @@ const homeFaqs = [
   }
 ];
 
+const whyChooseUsFeatures = [
+    {
+        icon: <Users className="h-10 w-10 text-primary" />,
+        title: "Experienced Team",
+        description: "Our team consists of seasoned professionals with years of experience in their respective fields.",
+    },
+    {
+        icon: <TrendingUp className="h-10 w-10 text-primary" />,
+        title: "Proven Track Record",
+        description: "We have a history of delivering successful projects and driving tangible results for our clients.",
+    },
+    {
+        icon: <HeartHandshake className="h-10 w-10 text-primary" />,
+        title: "Customer-Centric Approach",
+        description: "Your satisfaction is our priority. We work closely with you to understand your needs and deliver solutions that exceed expectations.",
+    },
+    {
+        icon: <Lightbulb className="h-10 w-10 text-primary" />,
+        title: "Innovative Solutions",
+        description: "We stay at the forefront of technology to provide you with cutting-edge and future-proof solutions.",
+    },
+    {
+        icon: <Headset className="h-10 w-10 text-primary" />,
+        title: "24/7 Support",
+        description: "Our dedicated support team is available around the clock to assist you with any issues or questions.",
+    },
+    {
+        icon: <Star className="h-10 w-10 text-primary" />,
+        title: "Affordable Pricing",
+        description: "We offer competitive pricing without compromising on the quality of our services.",
+    },
+];
 
 export default function Home() {
   const services = [
@@ -166,7 +198,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="latest-blogs" className="w-full py-16 md:py-24 bg-card">
+      <section id="why-choose-us" className="w-full py-16 md:py-24 bg-card">
+          <div className="container mx-auto px-4 md:px-6">
+              <AnimatedOnScroll animation="fadeInUp" className="text-center">
+                  <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Why Choose Us</h2>
+                  <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                      Trusted by businesses for reliable and innovative solutions.
+                  </p>
+              </AnimatedOnScroll>
+              <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {whyChooseUsFeatures.map((feature, index) => (
+                      <AnimatedOnScroll key={feature.title} animation="fadeInUp" delay={index * 0.1}>
+                          <Card className="text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
+                              <CardHeader>
+                                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+                                      {feature.icon}
+                                  </div>
+                                  <CardTitle className="mt-6">{feature.title}</CardTitle>
+                              </CardHeader>
+                              <CardContent>
+                                  <p className="text-muted-foreground">{feature.description}</p>
+                              </CardContent>
+                          </Card>
+                      </AnimatedOnScroll>
+                  ))}
+              </div>
+          </div>
+      </section>
+
+      <section id="latest-blogs" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Latest From Our Blog</h2>
@@ -223,7 +283,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="w-full py-16 md:py-24 bg-background">
+      <section id="testimonials" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
            <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">What Our Clients Say</h2>
@@ -255,7 +315,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section id="partners" className="w-full py-16 md:py-24 bg-card">
+      <section id="partners" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
            <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Partners</h2>
@@ -284,3 +344,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
