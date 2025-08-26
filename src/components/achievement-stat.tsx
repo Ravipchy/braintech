@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { useInView } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { cn } from "@/lib/utils";
 
 interface AnimatedCounterProps {
   value: number;
@@ -81,11 +80,7 @@ export function AchievementStat({ icon, label, value, unit, progress, progressCo
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
         <p className="text-5xl font-bold text-primary tracking-tighter">
-          {label !== 'Customer Support' ? (
-            <AnimatedCounter value={value} />
-          ) : (
-            value
-          )}
+          <AnimatedCounter value={value} />
           {unit}
         </p>
         <div className="mt-4">
