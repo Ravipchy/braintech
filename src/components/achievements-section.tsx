@@ -26,14 +26,6 @@ const achievements = [
     progressColor: "bg-green-500",
   },
   {
-    icon: <Star className="h-10 w-10 text-primary" />,
-    label: "Years of Experience",
-    value: 10,
-    unit: "+",
-    progress: 100,
-    progressColor: "bg-amber-500",
-  },
-  {
     icon: <Headset className="h-10 w-10 text-primary" />,
     label: "Customer Support",
     value: 24,
@@ -56,7 +48,7 @@ export function AchievementsSection() {
               Delivering quality services with proven results
             </p>
           </AnimatedOnScroll>
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {achievements.map((stat, index) => (
               <AnimatedOnScroll key={stat.label} animation="fadeInUp" delay={index * 0.1}>
                 <AchievementStat {...stat} />
