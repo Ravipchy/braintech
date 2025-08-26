@@ -95,7 +95,7 @@ function FooterAccordionItem({ title, links }: { title: string, links: { href: s
             )}>
                  <ul className="space-y-3 min-h-0">
                     {links.map(link => (
-                        <li key={link.href}>
+                        <li key={`${link.href}-${link.label}`}>
                             <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-base">
                                 {link.label}
                             </Link>
