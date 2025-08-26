@@ -13,7 +13,6 @@ import Link from "next/link";
 import { Search, ArrowRight } from "lucide-react";
 import type { Metadata } from 'next';
 import { FaqSection } from "@/components/common/faq-section";
-import { AchievementsSection } from "@/components/common/achievements-section";
 
 // export const metadata: Metadata = {
 //   title: 'Blog',
@@ -154,7 +153,6 @@ export default function BlogPage() {
           )}
         </div>
       </section>
-      <AchievementsSection />
       <FaqSection items={blogFaqs} />
     </>
   );

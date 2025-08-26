@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import type { Metadata } from 'next';
 import { FaqSection } from "@/components/common/faq-section";
-import { AchievementsSection } from "@/components/common/achievements-section";
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -142,7 +141,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <AchievementsSection />
       <FaqSection items={aboutFaqs} />
     </>
   );

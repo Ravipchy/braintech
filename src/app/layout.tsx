@@ -3,7 +3,6 @@ import './globals.css';
 import { Header } from '@/components/common/header';
 import { Footer } from '@/components/common/footer';
 import { Toaster } from '@/components/ui/toaster';
-import { ScheduleMeetingButton } from '@/components/common/schedule-meeting-button';
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +30,6 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
-        <ScheduleMeetingButton />
         <Toaster />
       </body>
     </html>

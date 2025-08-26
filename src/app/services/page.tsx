@@ -3,7 +3,6 @@ import Image from "next/image";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import type { Metadata } from 'next';
 import { FaqSection } from "@/components/common/faq-section";
-import { AchievementsSection } from "@/components/common/achievements-section";
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -123,7 +122,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-      <AchievementsSection />
       <FaqSection items={servicesFaqs} />
     </>
   );

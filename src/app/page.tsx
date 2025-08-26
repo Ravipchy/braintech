@@ -6,10 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { Typewriter } from "@/components/typewriter";
-import { AchievementStat } from "@/components/achievement-stat";
 import { posts } from "@/lib/blog-data";
 import { FaqSection } from "@/components/common/faq-section";
-import { AchievementsSection } from "@/components/common/achievements-section";
 
 const homeFaqs = [
   {
@@ -172,8 +170,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <AchievementsSection />
 
       <section id="latest-blogs" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
