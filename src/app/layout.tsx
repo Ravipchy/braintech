@@ -4,7 +4,6 @@ import './globals.css';
 import { Header } from '@/components/common/header';
 import { Footer } from '@/components/common/footer';
 import { Toaster } from '@/components/ui/toaster';
-import { AchievementsSection } from '@/components/achievements-section';
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +29,6 @@ export default function RootLayout({
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
-          <AchievementsSection />
           <Footer />
         </div>
         <Toaster />

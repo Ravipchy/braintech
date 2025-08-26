@@ -12,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, ArrowRight, Clock } from "lucide-react";
 import { FaqSection } from "@/components/common/faq-section";
+import { AchievementsSection } from "@/components/achievements-section";
 
 const allCategories = ["All", ...Array.from(new Set(posts.map(p => p.category)))];
 
@@ -145,6 +146,7 @@ export default function BlogPage() {
           )}
         </div>
       </section>
+      <AchievementsSection />
       <FaqSection items={blogFaqs} />
     </>
   );

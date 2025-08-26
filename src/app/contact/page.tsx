@@ -1,7 +1,9 @@
+
 import { ContactForm } from "@/components/contact-form";
 import { Mail, Phone, MapPin } from "lucide-react";
 import type { Metadata } from 'next';
 import { FaqSection } from "@/components/common/faq-section";
+import { AchievementsSection } from "@/components/achievements-section";
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -111,6 +113,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <AchievementsSection />
       <FaqSection items={contactFaqs} />
     </>
   );

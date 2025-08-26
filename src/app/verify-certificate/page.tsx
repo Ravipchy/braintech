@@ -1,5 +1,7 @@
+
 import { CertificateVerificationForm } from "@/components/certificate-verification-form";
 import type { Metadata } from 'next';
+import { AchievementsSection } from "@/components/achievements-section";
 
 export const metadata: Metadata = {
   title: 'Certificate Verification',
@@ -25,6 +27,7 @@ export default function VerifyCertificatePage() {
           </div>
         </div>
       </section>
+      <AchievementsSection />
     </>
   );
 }

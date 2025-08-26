@@ -1,3 +1,4 @@
+
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock } from "lucide-react";
 import type { Metadata } from 'next';
+import { AchievementsSection } from "@/components/achievements-section";
 
 export const metadata: Metadata = {
   title: 'Careers',
@@ -126,6 +128,7 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
+      <AchievementsSection />
     </>
   );
 }

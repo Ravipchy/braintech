@@ -10,6 +10,7 @@ import { Typewriter } from "@/components/typewriter";
 import { posts } from "@/lib/blog-data";
 import { FaqSection } from "@/components/common/faq-section";
 import { Badge } from "@/components/ui/badge";
+import { AchievementsSection } from "@/components/achievements-section";
 
 const homeFaqs = [
   {
@@ -278,7 +279,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <AchievementsSection />
       <FaqSection items={homeFaqs} />
     </div>
   );
