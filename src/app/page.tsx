@@ -1,7 +1,8 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Bot, LineChart, Code } from "lucide-react";
+import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
@@ -10,19 +11,40 @@ import { Typewriter } from "@/components/typewriter";
 export default function Home() {
   const services = [
     {
-      icon: <Bot className="h-10 w-10 text-primary" />,
-      title: "AI Solutions",
-      description: "Harness the power of artificial intelligence to automate processes, gain insights, and drive innovation.",
-    },
-    {
       icon: <Code className="h-10 w-10 text-primary" />,
-      title: "Web Development",
-      description: "We build modern, responsive, and scalable web applications tailored to your business needs.",
+      title: "Custom Web Development",
+      description: "Tailored websites and web apps built with modern frameworks to meet your specific needs.",
+      link: "/services"
     },
     {
-      icon: <LineChart className="h-10 w-10 text-primary" />,
-      title: "Data Analytics",
-      description: "Turn your data into actionable insights with our advanced analytics and visualization services.",
+      icon: <Smartphone className="h-10 w-10 text-primary" />,
+      title: "Mobile App Development",
+      description: "Cross-platform Android & iOS apps with smooth performance and engaging user experiences.",
+      link: "/services"
+    },
+    {
+      icon: <Cloud className="h-10 w-10 text-primary" />,
+      title: "Cloud & DevOps Solutions",
+      description: "Scalable cloud hosting, automation, and deployment services for optimal performance.",
+      link: "/services"
+    },
+    {
+      icon: <Bot className="h-10 w-10 text-primary" />,
+      title: "AI & Machine Learning",
+      description: "Smart AI tools and predictive analytics for business growth and data-driven decisions.",
+      link: "/services"
+    },
+    {
+      icon: <ShieldCheck className="h-10 w-10 text-primary" />,
+      title: "Cybersecurity Services",
+      description: "Protect your digital assets with enterprise-grade security solutions and threat mitigation.",
+      link: "/services"
+    },
+    {
+      icon: <PenTool className="h-10 w-10 text-primary" />,
+      title: "UI/UX Design",
+      description: "Modern, user-friendly, and accessible designs to enhance user engagement and satisfaction.",
+      link: "/services"
     },
   ];
 
@@ -91,18 +113,21 @@ export default function Home() {
               Delivering excellence and innovation in every project.
             </p>
           </AnimatedOnScroll>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
-              <AnimatedOnScroll key={service.title} animation={index % 2 === 0 ? "fadeInLeft" : "fadeInRight"} delay={index * 0.1}>
-                <Card className="text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
+                <Card className="text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
                   <CardHeader>
                     <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                       {service.icon}
                     </div>
                     <CardTitle className="mt-6">{service.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
+                  <CardContent className="flex-grow flex flex-col">
+                    <p className="text-muted-foreground flex-grow">{service.description}</p>
+                    <Button asChild variant="link" className="mt-4">
+                        <Link href={service.link}>Learn More</Link>
+                    </Button>
                   </CardContent>
                 </Card>
               </AnimatedOnScroll>
