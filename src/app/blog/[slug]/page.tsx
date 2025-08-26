@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Clock } from 'lucide-react';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { Button } from '@/components/ui/button';
 
@@ -65,7 +65,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <header className="mb-8">
           <Badge variant="secondary" className="mb-4">{post.category}</Badge>
           <h1 className="text-4xl md:text-5xl font-extrabold font-headline tracking-tighter mb-4">{post.title}</h1>
-          <p className="text-muted-foreground text-lg">{post.date}</p>
+          <div className="flex items-center space-x-4 text-muted-foreground text-sm">
+            <span>{post.date}</span>
+            <span>&bull;</span>
+            <div className="flex items-center">
+              <Clock className="mr-2 h-4 w-4" />
+              <span>{post.readingTime}</span>
+            </div>
+          </div>
         </header>
 
         <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-12 shadow-lg">

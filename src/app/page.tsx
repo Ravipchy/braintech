@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -8,6 +9,7 @@ import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { Typewriter } from "@/components/typewriter";
 import { posts } from "@/lib/blog-data";
 import { FaqSection } from "@/components/common/faq-section";
+import { Badge } from "@/components/ui/badge";
 
 const homeFaqs = [
   {
@@ -163,7 +165,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="latest-blogs" className="w-full py-16 md:py-24 bg-background">
+      <section id="latest-blogs" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Latest From Our Blog</h2>
@@ -174,32 +176,41 @@ export default function Home() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {latestPosts.map((post, index) => (
               <AnimatedOnScroll key={post.slug} animation="fadeInUp" delay={index * 0.1}>
-                <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full">
-                  <div className="overflow-hidden">
-                    <Link href={`/blog/${post.slug}`}>
-                      <Image
-                        src={post.imageUrl}
-                        alt={post.title}
-                        width={600}
-                        height={400}
-                        data-ai-hint={post.imageHint}
-                        className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
-                      />
-                    </Link>
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-xl h-14 line-clamp-2">{post.title}</CardTitle>
-                    <p className="text-sm text-muted-foreground pt-2">{post.category} &bull; {post.date}</p>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <p className="text-muted-foreground line-clamp-3">{post.description}</p>
-                  </CardContent>
-                  <div className="p-6 pt-0">
-                    <Button asChild variant="link" className="p-0 h-auto">
-                        <Link href={`/blog/${post.slug}`}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                    </Button>
-                  </div>
-                </Card>
+                 <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full rounded-xl">
+                    <div className="overflow-hidden">
+                      <Link href={`/blog/${post.slug}`}>
+                        <Image
+                          src={post.imageUrl}
+                          alt={post.title}
+                          width={600}
+                          height={400}
+                          data-ai-hint={post.imageHint}
+                          className="w-full h-56 object-cover transition-transform duration-500 hover:scale-110"
+                        />
+                      </Link>
+                    </div>
+                    <CardHeader>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground">
+                        <Badge variant="secondary" className="w-fit">{post.category}</Badge>
+                         <div className="flex items-center">
+                            <Clock className="mr-1.5 h-4 w-4" />
+                            <span>{post.readingTime}</span>
+                         </div>
+                      </div>
+                      <CardTitle className="text-xl h-14 line-clamp-2 pt-2">
+                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground line-clamp-3">{post.description}</p>
+                    </CardContent>
+                    <div className="p-6 pt-0 flex justify-between items-center">
+                       <p className="text-sm text-muted-foreground">{post.date}</p>
+                       <Button asChild variant="link" className="p-0 h-auto">
+                          <Link href={`/blog/${post.slug}`}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                      </Button>
+                    </div>
+                  </Card>
               </AnimatedOnScroll>
             ))}
           </div>
@@ -211,7 +222,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="w-full py-16 md:py-24 bg-card">
+      <section id="testimonials" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
            <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">What Our Clients Say</h2>
@@ -224,7 +235,7 @@ export default function Home() {
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
-                    <Card className="border-0 shadow-none">
+                    <Card className="border-0 shadow-none bg-transparent">
                       <CardContent className="flex flex-col items-center justify-center p-6 text-center">
                         <blockquote className="text-xl italic text-foreground">
                           &ldquo;{testimonial.quote}&rdquo;
@@ -243,7 +254,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section id="partners" className="w-full py-16 md:py-24 bg-background">
+      <section id="partners" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
            <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Partners</h2>

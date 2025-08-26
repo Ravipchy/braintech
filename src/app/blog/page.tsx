@@ -1,8 +1,8 @@
+
 "use client";
 
 import { useState } from "react";
 import { posts } from "@/lib/blog-data";
-import type { BlogPost } from "@/lib/blog-data";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,14 +10,8 @@ import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, ArrowRight } from "lucide-react";
-import type { Metadata } from 'next';
+import { Search, ArrowRight, Clock } from "lucide-react";
 import { FaqSection } from "@/components/common/faq-section";
-
-// export const metadata: Metadata = {
-//   title: 'Blog',
-//   description: 'Insights, trends, and thoughts from the BrainTech team.',
-// };
 
 const allCategories = ["All", ...Array.from(new Set(posts.map(p => p.category)))];
 
@@ -91,7 +85,7 @@ export default function BlogPage() {
                   key={category}
                   variant={selectedCategory === category ? "default" : "outline"}
                   onClick={() => setSelectedCategory(category)}
-                  className="whitespace-nowrap"
+                  className="whitespace-nowrap rounded-full"
                 >
                   {category}
                 </Button>
@@ -104,7 +98,7 @@ export default function BlogPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post, index) => (
                 <AnimatedOnScroll key={post.slug} animation="fadeInUp" delay={index * 0.1}>
-                  <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full">
+                  <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full rounded-xl">
                     <div className="overflow-hidden">
                       <Link href={`/blog/${post.slug}`}>
                         <Image
@@ -119,17 +113,23 @@ export default function BlogPage() {
                       </Link>
                     </div>
                     <CardHeader>
-                      <Badge variant="secondary" className="w-fit mb-2">{post.category}</Badge>
-                      <CardTitle className="text-xl h-14 line-clamp-2">
+                      <div className="flex items-center justify-between text-sm text-muted-foreground">
+                        <Badge variant="secondary" className="w-fit">{post.category}</Badge>
+                         <div className="flex items-center">
+                            <Clock className="mr-1.5 h-4 w-4" />
+                            <span>{post.readingTime}</span>
+                         </div>
+                      </div>
+                      <CardTitle className="text-xl h-14 line-clamp-2 pt-2">
                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                       </CardTitle>
-                      <p className="text-sm text-muted-foreground pt-2">{post.date}</p>
                     </CardHeader>
                     <CardContent className="flex-grow">
                       <p className="text-muted-foreground line-clamp-4">{post.description}</p>
                     </CardContent>
-                    <div className="p-6 pt-0">
-                      <Button asChild variant="link" className="p-0 h-auto">
+                    <div className="p-6 pt-0 flex justify-between items-center">
+                       <p className="text-sm text-muted-foreground">{post.date}</p>
+                       <Button asChild variant="link" className="p-0 h-auto">
                           <Link href={`/blog/${post.slug}`}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
                       </Button>
                     </div>

@@ -46,21 +46,24 @@ export function Header() {
           <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
         </Link>
         <nav className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "relative text-sm font-medium transition-colors hover:text-primary",
-                "after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-full after:bg-primary after:origin-center after:scale-x-0 after:transition-transform hover:after:scale-x-100",
-                pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href
-                  ? "text-primary after:scale-x-100"
-                  : "text-muted-foreground"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+            return (
+                <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                    "relative text-sm font-medium transition-colors hover:text-primary",
+                    "after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-full after:bg-primary after:origin-center after:scale-x-0 after:transition-transform hover:after:scale-x-100",
+                    isActive
+                    ? "text-primary after:scale-x-100"
+                    : "text-muted-foreground"
+                )}
+                >
+                {link.label}
+                </Link>
+            )
+          })}
         </nav>
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -76,21 +79,24 @@ export function Header() {
                   <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
                 </Link>
                 <nav className="flex flex-col gap-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={closeMobileMenu}
-                      className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
-                         pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href
-                          ? "text-primary"
-                          : "text-muted-foreground"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {navLinks.map((link) => {
+                     const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+                     return (
+                        <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={closeMobileMenu}
+                        className={cn(
+                            "text-lg font-medium transition-colors hover:text-primary",
+                            isActive
+                            ? "text-primary"
+                            : "text-muted-foreground"
+                        )}
+                        >
+                        {link.label}
+                        </Link>
+                     )
+                  })}
                 </nav>
               </div>
             </SheetContent>

@@ -7,6 +7,7 @@ export interface BlogPost {
   category: string;
   imageUrl: string;
   imageHint: string;
+  readingTime: string;
   content: string;
 }
 
@@ -19,6 +20,7 @@ export const posts: BlogPost[] = [
     category: 'AI Solutions',
     imageUrl: 'https://picsum.photos/seed/ai-web/600/400',
     imageHint: 'AI web development',
+    readingTime: '5 min read',
     content: `
 ## The Dawn of a New Era
 
@@ -45,6 +47,7 @@ The journey of AI in web development is just beginning. As models become more po
     category: 'Cloud & DevOps',
     imageUrl: 'https://picsum.photos/seed/cloud-devops/600/400',
     imageHint: 'cloud infrastructure',
+    readingTime: '6 min read',
     content: `
 ## The Foundation of Modern Software
 
@@ -71,6 +74,7 @@ When you combine cloud infrastructure with DevOps practices, you create a flywhe
     category: 'UI/UX Design',
     imageUrl: 'https://picsum.photos/seed/ui-ux/600/400',
     imageHint: 'user interface design',
+    readingTime: '4 min read',
     content: `
 ## Crafting Memorable Digital Experiences
 
@@ -101,6 +105,7 @@ AI is also making its mark on the design process itself. AI-powered tools can ge
     category: 'Mobile App Development',
     imageUrl: 'https://picsum.photos/seed/mobile-dev/600/400',
     imageHint: 'mobile application development',
+    readingTime: '5 min read',
     content: 'Full content for the mobile development blog post...',
   },
   {
@@ -111,6 +116,7 @@ AI is also making its mark on the design process itself. AI-powered tools can ge
     category: 'Cybersecurity',
     imageUrl: 'https://picsum.photos/seed/cybersecurity/600/400',
     imageHint: 'cybersecurity lock',
+    readingTime: '7 min read',
     content: 'Full content for the cybersecurity blog post...',
   },
   {
@@ -121,6 +127,7 @@ AI is also making its mark on the design process itself. AI-powered tools can ge
     category: 'Web Development',
     imageUrl: 'https://picsum.photos/seed/nextjs/600/400',
     imageHint: 'web development code',
+    readingTime: '8 min read',
     content: 'Full content for the Next.js blog post...',
   },
 ];
