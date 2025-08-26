@@ -1,8 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool, Users, Briefcase, Star, ArrowRight } from "lucide-react";
+import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool, Users, Briefcase, Star, ArrowRight, Award, HeartHandshake, Clock, Headset } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
@@ -10,6 +9,7 @@ import { Typewriter } from "@/components/typewriter";
 import { AchievementStat } from "@/components/achievement-stat";
 import { posts } from "@/lib/blog-data";
 import { FaqSection } from "@/components/common/faq-section";
+import { AchievementsSection } from "@/components/common/achievements-section";
 
 const homeFaqs = [
   {
@@ -80,33 +80,6 @@ export default function Home() {
       title: "UI/UX Design",
       description: "Modern, user-friendly, and accessible designs to enhance user engagement and satisfaction.",
       link: "/services"
-    },
-  ];
-
-  const achievements = [
-    {
-      icon: <Users className="h-10 w-10 text-primary" />,
-      label: "Clients Served",
-      value: 120,
-      unit: "+",
-      progress: 80,
-      progressColor: "bg-blue-500",
-    },
-    {
-      icon: <Briefcase className="h-10 w-10 text-primary" />,
-      label: "Projects Completed",
-      value: 250,
-      unit: "+",
-      progress: 95,
-      progressColor: "bg-green-500",
-    },
-    {
-      icon: <Star className="h-10 w-10 text-primary" />,
-      label: "Client Satisfaction",
-      value: 95,
-      unit: "%",
-      progress: 95,
-      progressColor: "bg-yellow-500",
     },
   ];
 
@@ -200,23 +173,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="achievements" className="w-full py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4 md:px-6">
-          <AnimatedOnScroll animation="fadeInUp" className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Achievements</h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Delivering value and building trust with every project.
-            </p>
-          </AnimatedOnScroll>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {achievements.map((achievement, index) => (
-              <AnimatedOnScroll key={achievement.label} animation="fadeInUp" delay={index * 0.2}>
-                <AchievementStat {...achievement} />
-              </AnimatedOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AchievementsSection />
 
       <section id="latest-blogs" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
