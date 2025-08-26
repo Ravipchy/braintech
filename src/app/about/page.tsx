@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const teamMembers = [
   {
-    name: "Dr. Alistair Finch",
+    name: "Ravi P Choudhary",
     role: "Founder & CEO",
     avatar: "https://picsum.photos/seed/male1/100/100",
     hint: "professional headshot male",
@@ -52,15 +52,11 @@ const aboutFaqs = [
   },
   {
     question: "How was BrainTech founded?",
-    answer: "BrainTech was founded by Dr. Alistair Finch with the vision of making cutting-edge technology accessible and practical for businesses of all sizes, aiming to solve real-world problems through innovation."
+    answer: "BrainTech was founded by Ravi P Choudhary with the vision of making cutting-edge technology accessible and practical for businesses of all sizes, aiming to solve real-world problems through innovation."
   },
   {
     question: "What kind of company culture do you have?",
     answer: "We foster a collaborative and innovative culture where continuous learning is encouraged. Our team is passionate about technology and dedicated to pushing the boundaries of what's possible."
-  },
-  {
-    question: "Where are your offices located?",
-    answer: "Our main office is located in the heart of Silicon Valley, but we operate with a remote-first mindset, with team members contributing from around the world."
   },
   {
     question: "How can I join the BrainTech team?",
@@ -134,7 +130,7 @@ export default function AboutPage() {
                          <CardContent className="pt-6">
                             <h3 className="text-lg font-semibold">{member.name}</h3>
                             <p className="text-primary text-sm">{member.role}</p>
-                            <p className="mt-2 text-xs text-muted-foreground px-4">Further details about {member.name}'s expertise and contributions can go here.</p>
+                            <p className="mt-2 text-xs text-muted-foreground px-4">As Founder & CEO, Ravi P Choudhary drives the company's vision, strategy, and growth, ensuring BrainTech remains at the forefront of technological innovation.</p>
                          </CardContent>
                        </Card>
                     </div>

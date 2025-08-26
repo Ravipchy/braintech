@@ -48,6 +48,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} BrainTech Technology. All rights reserved.</p>
+          <p className="mt-2">Address: Near BM College, Rahika, Madhubani, Bihar – 847211</p>
         </div>
       </div>
     </footer>
