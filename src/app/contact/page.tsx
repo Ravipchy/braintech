@@ -11,6 +11,14 @@ export const metadata: Metadata = {
 
 const contactFaqs = [
     {
+      question: "Where is BrainTech Technology’s office located?",
+      answer: "Our office is located Near BM College, Rahika, Madhubani, Bihar – 847211."
+    },
+    {
+      question: "Who is the founder of BrainTech Technology?",
+      answer: "BrainTech Technology was founded by Ravi P Choudhary, who leads the company as Founder & CEO."
+    },
+    {
         question: "What is the best way to contact you?",
         answer: "The best way to reach us is by filling out the contact form on this page. For urgent inquiries, you can also reach us via phone during business hours."
     },

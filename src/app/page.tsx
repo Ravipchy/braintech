@@ -13,6 +13,14 @@ import { FaqSection } from "@/components/common/faq-section";
 
 const homeFaqs = [
   {
+    question: "Where is BrainTech Technology’s office located?",
+    answer: "Our office is located Near BM College, Rahika, Madhubani, Bihar – 847211."
+  },
+  {
+    question: "Who is the founder of BrainTech Technology?",
+    answer: "BrainTech Technology was founded by Ravi P Choudhary, who leads the company as Founder & CEO."
+  },
+  {
     question: "What kind of technologies do you specialize in?",
     answer: "We specialize in a wide range of modern technologies, including Next.js and React for web development, Python for AI and machine learning, and major cloud platforms like AWS and Google Cloud for DevOps and scalable infrastructure."
   },

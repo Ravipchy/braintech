@@ -39,6 +39,14 @@ const teamMembers = [
 
 const aboutFaqs = [
   {
+    question: "Where is BrainTech Technology’s office located?",
+    answer: "Our office is located Near BM College, Rahika, Madhubani, Bihar – 847211."
+  },
+  {
+    question: "Who is the founder of BrainTech Technology?",
+    answer: "BrainTech Technology was founded by Ravi P Choudhary, who leads the company as Founder & CEO."
+  },
+  {
     question: "What is the core mission of BrainTech?",
     answer: "Our core mission is to empower businesses with transformative AI and web technologies, creating intelligent solutions that drive growth, efficiency, and a competitive edge."
   },
