@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Facebook, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
@@ -20,6 +21,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
+              <li><Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
               <li><Link href="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
               <li><Link href="/verify-certificate" className="text-muted-foreground hover:text-primary transition-colors">Verify Certificate</Link></li>

@@ -2,12 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool, Users, Briefcase, Star } from "lucide-react";
+import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool, Users, Briefcase, Star, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { Typewriter } from "@/components/typewriter";
 import { AchievementStat } from "@/components/achievement-stat";
+import { posts } from "@/lib/blog-data";
 
 export default function Home() {
   const services = [
@@ -102,6 +103,8 @@ export default function Home() {
     { name: "StartupX", logo: "https://placehold.co/150x50.png", hint: "corporate logo" },
   ];
 
+  const latestPosts = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
+
   return (
     <div className="flex flex-col">
       <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card overflow-hidden">
@@ -182,7 +185,55 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="w-full py-16 md:py-24 bg-background">
+      <section id="latest-blogs" className="w-full py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <AnimatedOnScroll animation="fadeInUp" className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Latest From Our Blog</h2>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Insights, trends, and thoughts from the BrainTech team.
+            </p>
+          </AnimatedOnScroll>
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {latestPosts.map((post, index) => (
+              <AnimatedOnScroll key={post.slug} animation="fadeInUp" delay={index * 0.1}>
+                <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full">
+                  <div className="overflow-hidden">
+                    <Link href={`/blog/${post.slug}`}>
+                      <Image
+                        src={post.imageUrl}
+                        alt={post.title}
+                        width={600}
+                        height={400}
+                        data-ai-hint={post.imageHint}
+                        className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    </Link>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-xl h-14 line-clamp-2">{post.title}</CardTitle>
+                    <p className="text-sm text-muted-foreground pt-2">{post.category} &bull; {post.date}</p>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p className="text-muted-foreground line-clamp-3">{post.description}</p>
+                  </CardContent>
+                  <div className="p-6 pt-0">
+                    <Button asChild variant="link" className="p-0 h-auto">
+                        <Link href={`/blog/${post.slug}`}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                    </Button>
+                  </div>
+                </Card>
+              </AnimatedOnScroll>
+            ))}
+          </div>
+          <AnimatedOnScroll animation="fadeInUp" delay={0.4} className="text-center mt-12">
+             <Button asChild size="lg" variant="outline" className="transition-transform hover:scale-105">
+                <Link href="/blog">View All Blogs</Link>
+              </Button>
+          </AnimatedOnScroll>
+        </div>
+      </section>
+
+      <section id="testimonials" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
            <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">What Our Clients Say</h2>
@@ -214,7 +265,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section id="partners" className="w-full py-16 md:py-24 bg-card">
+      <section id="partners" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
            <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Partners</h2>

@@ -15,6 +15,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
+  { href: "/blog", label: "Blog" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
   { href: "/verify-certificate", label: "Verify Certificate" },
@@ -52,7 +53,7 @@ export function Header() {
               className={cn(
                 "relative text-sm font-medium transition-colors hover:text-primary",
                 "after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-full after:bg-primary after:origin-center after:scale-x-0 after:transition-transform hover:after:scale-x-100",
-                pathname === link.href
+                pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href
                   ? "text-primary after:scale-x-100"
                   : "text-muted-foreground"
               )}
@@ -82,7 +83,7 @@ export function Header() {
                       onClick={closeMobileMenu}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary",
-                         pathname === link.href
+                         pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href
                           ? "text-primary"
                           : "text-muted-foreground"
                       )}
