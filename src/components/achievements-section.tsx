@@ -10,28 +10,28 @@ import { ScheduleMeetingPopup } from "@/components/schedule-meeting-popup";
 
 const achievements = [
   {
-    icon: <Users className="h-10 w-10 text-primary" />,
-    label: "Satisfied Clients",
-    value: 50,
-    unit: "+",
-    progress: 90,
-    progressColor: "bg-blue-500",
+    icon: <Star className="h-10 w-10 text-primary" />,
+    label: "Client Satisfaction Level",
+    value: 99,
+    unit: "%",
+    progress: 99,
+    progressColor: "bg-yellow-500",
   },
   {
     icon: <Briefcase className="h-10 w-10 text-primary" />,
     label: "Projects Completed",
-    value: 100,
+    value: 120,
     unit: "+",
     progress: 95,
     progressColor: "bg-green-500",
   },
   {
-    icon: <Headset className="h-10 w-10 text-primary" />,
-    label: "Customer Support",
-    value: 24,
-    unit: "/7",
-    progress: 100,
-    progressColor: "bg-sky-500",
+    icon: <Users className="h-10 w-10 text-primary" />,
+    label: "Total Clients",
+    value: 50,
+    unit: "+",
+    progress: 90,
+    progressColor: "bg-blue-500",
   },
 ];
 
