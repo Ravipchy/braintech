@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { submitContactForm } from "@/app/contact/actions";
 import { useToast } from "@/hooks/use-toast";
 
 import { Button } from "@/components/ui/button";
@@ -41,31 +40,16 @@ export function ContactForm() {
 
   async function onSubmit(data: FormData) {
     setLoading(true);
-    try {
-      const result = await submitContactForm(data);
-      if (result.success) {
+    // In a static site, we can't perform server-side form submission.
+    // We'll simulate a delay and then show a message.
+    setTimeout(() => {
         toast({
-          title: "Message Sent!",
-          description: "We've received your message and will be in touch soon.",
+          variant: "destructive",
+          title: "Form Submission Unavailable",
+          description: "This contact form is for demonstration purposes only in this static version of the site.",
         });
-        form.reset();
-      } else {
-         toast({
-            variant: "destructive",
-            title: "Submission Failed",
-            description: result.error || "Something went wrong. Please try again.",
-        });
-      }
-    } catch (err) {
-      console.error("Error submitting form: ", err);
-      toast({
-        variant: "destructive",
-        title: "Submission Failed",
-        description: "Something went wrong. Please try again.",
-      });
-    } finally {
-      setLoading(false);
-    }
+        setLoading(false);
+    }, 1000);
   };
 
   return (
