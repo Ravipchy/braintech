@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Facebook, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Linkedin, Twitter, Phone } from "lucide-react";
 import Image from "next/image";
 
 export function Footer() {
@@ -39,7 +39,16 @@ export function Footer() {
           </div>
           <div>
             <h3 className="font-semibold text-foreground">Connect With Us</h3>
-            <p className="mt-4 text-sm text-muted-foreground">contact@braintechtechnology.com</p>
+            <div className="mt-4 space-y-2 text-sm">
+                <p>
+                    <a href="mailto:contact@braintechtechnology.com" className="text-muted-foreground hover:text-primary transition-colors">contact@braintechtechnology.com</a>
+                </p>
+                <p>
+                    <a href="tel:+919431607346" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                        <Phone className="w-4 h-4" />+91 9431607346
+                    </a>
+                </p>
+            </div>
             <div className="mt-4 flex space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-primary transition-transform hover:scale-125">
                 <Twitter className="h-5 w-5" />

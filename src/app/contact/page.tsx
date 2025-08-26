@@ -69,7 +69,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-muted-foreground">(555) 123-4567</p>
+                    <a href="tel:+919431607346" className="text-muted-foreground hover:text-primary transition-colors">+91 9431607346</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
