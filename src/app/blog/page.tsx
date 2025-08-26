@@ -23,14 +23,6 @@ const allCategories = ["All", ...Array.from(new Set(posts.map(p => p.category)))
 
 const blogFaqs = [
   {
-    question: "Where is BrainTech Technology’s office located?",
-    answer: "Our office is located Near BM College, Rahika, Madhubani, Bihar – 847211."
-  },
-  {
-    question: "Who is the founder of BrainTech Technology?",
-    answer: "BrainTech Technology was founded by Ravi P Choudhary, who leads the company as Founder & CEO."
-  },
-  {
     question: "Who writes the articles on the BrainTech blog?",
     answer: "Our articles are written by our in-house team of expert engineers, designers, and strategists who are passionate about sharing their knowledge and insights on the latest industry trends."
   },
