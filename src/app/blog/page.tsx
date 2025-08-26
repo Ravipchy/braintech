@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, ArrowRight } from "lucide-react";
 import type { Metadata } from 'next';
+import { FaqSection } from "@/components/common/faq-section";
 
 // export const metadata: Metadata = {
 //   title: 'Blog',
@@ -20,6 +21,30 @@ import type { Metadata } from 'next';
 // };
 
 const allCategories = ["All", ...Array.from(new Set(posts.map(p => p.category)))];
+
+const blogFaqs = [
+  {
+    question: "Who writes the articles on the BrainTech blog?",
+    answer: "Our articles are written by our in-house team of expert engineers, designers, and strategists who are passionate about sharing their knowledge and insights on the latest industry trends."
+  },
+  {
+    question: "How often do you publish new content?",
+    answer: "We aim to publish new articles a few times a month. You can subscribe to our newsletter to get notified whenever a new post is published."
+  },
+  {
+    question: "Can I suggest a topic for a future blog post?",
+    answer: "Absolutely! We love hearing from our readers. If you have a topic you'd like us to cover, please feel free to reach out to us through our contact page."
+  },
+  {
+    question: "Can I share your articles on my own website or social media?",
+    answer: "Yes, you are welcome to share our articles. We just ask that you please provide a clear attribution and a link back to the original post on our website."
+  },
+  {
+    question: "Do you accept guest posts?",
+    answer: "Currently, we do not accept guest posts. All of our content is created by our internal team to ensure the highest quality and consistency for our readers."
+  }
+];
+
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -121,6 +146,7 @@ export default function BlogPage() {
           )}
         </div>
       </section>
+      <FaqSection items={blogFaqs} />
     </>
   );
 }

@@ -1,7 +1,9 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import type { Metadata } from 'next';
+import { FaqSection } from "@/components/common/faq-section";
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -12,40 +14,64 @@ const services = [
   {
     title: "Custom AI & Machine Learning",
     description: "Develop bespoke AI models and machine learning algorithms to solve your unique business challenges. From natural language processing to computer vision, we deliver intelligent systems that learn and adapt.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://picsum.photos/seed/ai-service/600/400",
     hint: "artificial intelligence"
   },
   {
     title: "Enterprise Web Applications",
     description: "We architect and build robust, secure, and scalable web applications for enterprises. Our solutions are designed for high performance and seamless integration with your existing systems.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://picsum.photos/seed/web-service/600/400",
     hint: "web development code"
   },
   {
     title: "Advanced Data Analytics & BI",
     description: "Unlock the potential of your data. We provide end-to-end data analytics and business intelligence services, including data warehousing, ETL pipelines, and interactive dashboards.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://picsum.photos/seed/data-service/600/400",
     hint: "data analytics chart"
   },
   {
     title: "Cloud Infrastructure & DevOps",
     description: "Optimize your development and deployment lifecycle with our cloud and DevOps expertise. We help you build resilient, automated, and cost-effective infrastructure on AWS, Azure, and Google Cloud.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://picsum.photos/seed/cloud-service/600/400",
     hint: "cloud computing servers"
   },
   {
     title: "Mobile App Development",
     description: "Create engaging and high-performance mobile applications for iOS and Android. Our team delivers a smooth user experience with a focus on quality, speed, and business goals.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://picsum.photos/seed/mobile-service/600/400",
     hint: "mobile app interface"
   },
   {
     title: "Technology Consulting",
     description: "Navigate the complexities of the digital landscape with our expert guidance. We provide strategic consulting to help you make informed technology decisions and create a roadmap for success.",
-    imageUrl: "https://placehold.co/600x400.png",
+    imageUrl: "https://picsum.photos/seed/consult-service/600/400",
     hint: "business people meeting"
   },
 ];
+
+const servicesFaqs = [
+  {
+    question: "Which service is right for my business?",
+    answer: "The right service depends on your specific goals. We recommend starting with a technology consultation so we can understand your needs and provide a tailored recommendation. You can contact us to schedule a free consultation."
+  },
+  {
+    question: "Do you work with startups as well as large enterprises?",
+    answer: "Yes, we work with businesses of all sizes. Our solutions are scalable and can be tailored to fit the unique needs and budgets of both startups and established enterprises."
+  },
+  {
+    question: "How do you handle project management and communication?",
+    answer: "We use agile methodologies and dedicated project managers to ensure clear communication and transparency. You'll receive regular updates and have direct access to our team throughout the project lifecycle."
+  },
+  {
+    question: "Can you integrate your solutions with my existing systems?",
+    answer: "Absolutely. We specialize in building applications that integrate seamlessly with existing enterprise systems, APIs, and third-party services to ensure a cohesive technology ecosystem."
+  },
+  {
+    question: "What does the typical process for a new project look like?",
+    answer: "Our process typically involves an initial discovery phase, followed by strategy and planning, design, development, testing, and deployment. We work collaboratively with you at every stage to ensure the final product meets your expectations."
+  }
+];
+
 
 export default function ServicesPage() {
   return (
@@ -89,6 +115,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={servicesFaqs} />
     </>
   );
 }

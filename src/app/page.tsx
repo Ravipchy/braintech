@@ -9,6 +9,31 @@ import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { Typewriter } from "@/components/typewriter";
 import { AchievementStat } from "@/components/achievement-stat";
 import { posts } from "@/lib/blog-data";
+import { FaqSection } from "@/components/common/faq-section";
+
+const homeFaqs = [
+  {
+    question: "What kind of technologies do you specialize in?",
+    answer: "We specialize in a wide range of modern technologies, including Next.js and React for web development, Python for AI and machine learning, and major cloud platforms like AWS and Google Cloud for DevOps and scalable infrastructure."
+  },
+  {
+    question: "How long does a typical project take?",
+    answer: "Project timelines vary depending on the scope and complexity. A simple website might take a few weeks, while a complex enterprise application could take several months. We provide a detailed timeline after our initial consultation."
+  },
+  {
+    question: "Do you offer support and maintenance after the project is launched?",
+    answer: "Yes, we offer various support and maintenance packages to ensure your application remains up-to-date, secure, and performs optimally. We can tailor a plan to fit your specific needs."
+  },
+  {
+    question: "How do you ensure the quality of your work?",
+    answer: "We follow a rigorous development process that includes comprehensive testing, code reviews, and continuous integration. Our goal is to deliver robust, high-quality solutions that are built to last."
+  },
+  {
+    question: "Can you work with existing codebases?",
+    answer: "Absolutely. We have extensive experience working with and improving existing applications. We can help you refactor, modernize, and add new features to your current software."
+  }
+];
+
 
 export default function Home() {
   const services = [
@@ -109,12 +134,12 @@ export default function Home() {
     <div className="flex flex-col">
       <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card overflow-hidden">
         <Image 
-            src="https://placehold.co/1920x1080.png"
+            src="https://picsum.photos/seed/hero-bg/1920/1080"
             alt="Hero Background"
             fill
-            objectFit="cover"
             className="absolute inset-0 w-full h-full object-cover z-0 opacity-10"
             data-ai-hint="abstract technology"
+            priority
         />
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <AnimatedOnScroll animation="fadeInUp">
@@ -289,6 +314,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={homeFaqs} />
     </div>
   );
 }

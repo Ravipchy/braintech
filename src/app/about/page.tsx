@@ -1,7 +1,9 @@
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import type { Metadata } from 'next';
+import { FaqSection } from "@/components/common/faq-section";
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -12,28 +14,52 @@ const teamMembers = [
   {
     name: "Dr. Alistair Finch",
     role: "Founder & CEO",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "https://picsum.photos/seed/male1/100/100",
     hint: "professional headshot male",
   },
   {
     name: "Dr. Evelyn Reed",
     role: "Chief Technology Officer",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "https://picsum.photos/seed/female1/100/100",
     hint: "professional headshot female",
   },
   {
     name: "Marcus Thorne",
     role: "Head of AI Research",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "https://picsum.photos/seed/male2/100/100",
     hint: "professional headshot male tech",
   },
   {
     name: "Lena Petrova",
     role: "Lead Software Engineer",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "https://picsum.photos/seed/female2/100/100",
     hint: "professional headshot female tech",
   },
 ];
+
+const aboutFaqs = [
+  {
+    question: "What is the core mission of BrainTech?",
+    answer: "Our core mission is to empower businesses with transformative AI and web technologies, creating intelligent solutions that drive growth, efficiency, and a competitive edge."
+  },
+  {
+    question: "How was BrainTech founded?",
+    answer: "BrainTech was founded by Dr. Alistair Finch with the vision of making cutting-edge technology accessible and practical for businesses of all sizes, aiming to solve real-world problems through innovation."
+  },
+  {
+    question: "What kind of company culture do you have?",
+    answer: "We foster a collaborative and innovative culture where continuous learning is encouraged. Our team is passionate about technology and dedicated to pushing the boundaries of what's possible."
+  },
+  {
+    question: "Where are your offices located?",
+    answer: "Our main office is located in the heart of Silicon Valley, but we operate with a remote-first mindset, with team members contributing from around the world."
+  },
+  {
+    question: "How can I join the BrainTech team?",
+    answer: "We are always looking for talented individuals to join us. You can check our open positions and apply on our Careers page."
+  }
+];
+
 
 export default function AboutPage() {
   return (
@@ -111,6 +137,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={aboutFaqs} />
     </>
   );
 }

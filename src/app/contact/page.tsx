@@ -1,11 +1,36 @@
+
 import { ContactForm } from "@/components/contact-form";
 import { Mail, Phone, MapPin } from "lucide-react";
 import type { Metadata } from 'next';
+import { FaqSection } from "@/components/common/faq-section";
 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description: 'Get in touch with BrainTech Technology. We\'re here to answer your questions and explore how we can help your business.',
 };
+
+const contactFaqs = [
+    {
+        question: "What is the best way to contact you?",
+        answer: "The best way to reach us is by filling out the contact form on this page. For urgent inquiries, you can also reach us via phone during business hours."
+    },
+    {
+        question: "What are your business hours?",
+        answer: "Our team is available from 9:00 AM to 6:00 PM (PST), Monday through Friday. We strive to respond to all inquiries within 24 hours."
+    },
+    {
+        question: "Do you offer free consultations?",
+        answer: "Yes, we offer a free, no-obligation initial consultation to discuss your project ideas and how we can help you achieve your goals."
+    },
+    {
+        question: "How long does it typically take to receive a response?",
+        answer: "We pride ourselves on our responsiveness. You can typically expect to hear back from us within one business day after submitting the contact form."
+    },
+    {
+        question: "Can I visit your office in person?",
+        answer: "We'd love to meet you! Please contact us in advance to schedule an appointment to ensure the right team members are available to speak with you."
+    }
+];
 
 export default function ContactPage() {
   return (
@@ -87,6 +112,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={contactFaqs} />
     </>
   );
 }
