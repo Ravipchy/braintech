@@ -28,7 +28,8 @@ export async function getPersonalizedSuggestion(data: PersonalizeSuggestionInput
     return { suggestion: result };
   } catch (error) {
     console.error("Error in getPersonalizedSuggestion action:", error);
-    return { error: "Sorry, we couldn't process your request at this time. Please try again later." };
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
+    return { error: `Sorry, we couldn't process your request at this time. Reason: ${errorMessage}` };
   }
 }
 
