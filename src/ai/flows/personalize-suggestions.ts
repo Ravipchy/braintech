@@ -33,16 +33,24 @@ const prompt = ai.definePrompt({
   name: 'personalizeSuggestionPrompt',
   input: {schema: PersonalizeSuggestionInputSchema},
   output: {schema: PersonalizeSuggestionOutputSchema},
-  prompt: `You are an AI assistant designed to provide personalized suggestions for website content based on user inquiries.
-
-  Based on the following information provided by the user, suggest one specific page or type of content on the website that they should explore next. Be concise and explain why this content would be relevant to them.
-
+  prompt: `Based on the user's interest and message, suggest a relevant page on the website to explore.
+  
   User Name: {{{name}}}
-  User Email: {{{email}}}
-  User Message: {{{message}}}
-  Area of Interest: {{{interest}}}
-
-  Suggestion:`,
+  Interest: {{{interest}}}
+  Message: {{{message}}}
+  `,
+  config: {
+    safetySettings: [
+      {
+        category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+        threshold: 'BLOCK_NONE',
+      },
+      {
+        category: 'HARM_CATEGORY_HATE_SPEECH',
+        threshold: 'BLOCK_ONLY_HIGH',
+      },
+    ]
+  }
 });
 
 const personalizeSuggestionFlow = ai.defineFlow(
