@@ -35,7 +35,7 @@ const prompt = ai.definePrompt({
   output: {schema: PersonalizeSuggestionOutputSchema},
   prompt: `You are an AI assistant designed to provide personalized suggestions for website content based on user inquiries.
 
-  Based on the following information provided by the user, suggest one specific page or type of content on the BrainTech Technology website that they should explore next. Be concise and explain why this content would be relevant to them.
+  Based on the following information provided by the user, suggest one specific page or type of content on the website that they should explore next. Be concise and explain why this content would be relevant to them.
 
   User Name: {{{name}}}
   User Email: {{{email}}}
