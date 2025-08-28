@@ -6,7 +6,6 @@ import { Bot, LineChart, Code, Smartphone, Cloud, ShieldCheck, PenTool, Users, B
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
-import { Typewriter } from "@/components/typewriter";
 import { posts } from "@/lib/blog-data";
 import { FaqSection } from "@/components/common/faq-section";
 import { Badge } from "@/components/ui/badge";
@@ -139,18 +138,11 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card overflow-hidden">
-        <Image 
-            src="https://picsum.photos/seed/hero-bg/1920/1080"
-            alt="Hero Background"
-            fill
-            className="absolute inset-0 w-full h-full object-cover z-0 opacity-10"
-            data-ai-hint="abstract technology"
-            priority
-        />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-secondary opacity-50 animate-[spin_20s_linear_infinite]" />
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <AnimatedOnScroll animation="fadeInUp">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
-              Innovating the Future with <Typewriter text="Intelligent Technology 🚀" />
+              Building the Future of Software 🚀
             </h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
               We build cutting-edge solutions that empower businesses to thrive in the digital age.
@@ -178,7 +170,7 @@ export default function Home() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
-                <Card className="text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(5deg)_rotateX(-5deg)] flex flex-col h-full">
+                <Card className="text-center funky-shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(5deg)_rotateX(-5deg)] flex flex-col h-full">
                   <CardHeader>
                     <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                       {service.icon}
@@ -209,7 +201,7 @@ export default function Home() {
               <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {whyChooseUsFeatures.map((feature, index) => (
                       <AnimatedOnScroll key={feature.title} animation="fadeInUp" delay={index * 0.1}>
-                          <Card className="text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(-5deg)_rotateX(5deg)] flex flex-col h-full">
+                          <Card className="text-center funky-shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(-5deg)_rotateX(5deg)] flex flex-col h-full">
                               <CardHeader>
                                   <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                                       {feature.icon}
@@ -237,7 +229,7 @@ export default function Home() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {latestPosts.map((post, index) => (
               <AnimatedOnScroll key={post.slug} animation="fadeInUp" delay={index * 0.1}>
-                 <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full rounded-xl">
+                 <Card className="flex flex-col overflow-hidden funky-shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full rounded-xl">
                     <div className="overflow-hidden">
                       <Link href={`/blog/${post.slug}`}>
                         <Image
@@ -344,5 +336,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

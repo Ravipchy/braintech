@@ -107,7 +107,7 @@ export default function AboutPage() {
             {teamMembers.map((member, i) => (
               <AnimatedOnScroll key={member.name} animation="fadeInUp" delay={i * 0.1}>
                 <div className="[perspective:1000px] group">
-                   <Card className="text-center transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                   <Card className="text-center transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] funky-shadow">
                     <div className="h-full w-full [backface-visibility:hidden]">
                       <CardContent className="pt-6">
                         <Avatar className="w-24 h-24 mx-auto">
