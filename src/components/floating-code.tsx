@@ -26,11 +26,11 @@ const FloatingCode = () => {
 
   useEffect(() => {
     const generateSnippets = () => {
-      const newSnippets = Array.from({ length: 20 }).map((_, i) => {
+      const newSnippets = Array.from({ length: 40 }).map((_, i) => {
         const content = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
         const style = {
           left: `${Math.random() * 100}%`,
-          animationDuration: `${15 + Math.random() * 15}s`,
+          animationDuration: `${10 + Math.random() * 10}s`,
           animationDelay: `${Math.random() * 10}s`,
           fontSize: `${0.7 + Math.random() * 0.4}rem`,
         };
@@ -46,7 +46,7 @@ const FloatingCode = () => {
       {snippets.map(snippet => (
         <pre
           key={snippet.id}
-          className="text-foreground/20 absolute top-full animate-float-up"
+          className="font-code text-green-400/40 absolute top-full animate-float-up"
           style={snippet.style}
         >
           {snippet.content}

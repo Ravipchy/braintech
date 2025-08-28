@@ -142,12 +142,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative w-full min-h-screen flex items-center justify-center bg-card overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center justify-center bg-gray-950 overflow-hidden">
         <FloatingCode />
+        <div className="absolute inset-0 bg-radial-gradient-dark"></div>
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <AnimatedOnScroll animation="fadeInUp">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
-              We Build <Typewriter text="Web Apps 💻" />
+              We Build <Typewriter />
             </h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
               We build cutting-edge solutions that empower businesses to thrive in the digital age.
