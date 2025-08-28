@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import type { Metadata } from 'next';
 import { FaqSection } from "@/components/common/faq-section";
 import { AchievementsSection } from "@/components/achievements-section";
+import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -38,17 +39,19 @@ export default function ContactPage() {
     <>
       <section className="w-full py-20 md:py-32 bg-card">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">Get in Touch</h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-            We'd love to hear from you. Fill out the form below, and we'll get back to you as soon as possible.
-          </p>
+          <AnimatedOnScroll animation="fadeInUp">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">Get in Touch</h1>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+              We'd love to hear from you. Fill out the form below, and we'll get back to you as soon as possible.
+            </p>
+          </AnimatedOnScroll>
         </div>
       </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
+             <AnimatedOnScroll animation="fadeInLeft" className="space-y-8">
               <div>
                 <h2 className="text-2xl font-bold font-headline">Contact Information</h2>
                 <p className="text-muted-foreground mt-2">Find us at our office or reach out via email or phone.</p>
@@ -82,23 +85,23 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div>
+            </AnimatedOnScroll>
+            <AnimatedOnScroll animation="fadeInRight">
               <ContactForm />
-            </div>
+            </AnimatedOnScroll>
           </div>
         </div>
       </section>
       
       <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center">
+          <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold font-headline">📍 Visit Us</h2>
             <p className="mt-2 text-lg text-muted-foreground">
               Near BM College, Rahika, Madhubani, Bihar, 847211
             </p>
-          </div>
-          <div className="mt-8">
+          </AnimatedOnScroll>
+          <AnimatedOnScroll animation="fadeInUp" delay={0.2} className="mt-8">
             <div className="aspect-video overflow-hidden rounded-xl shadow-lg">
                 <iframe 
                     src="https://www.google.com/maps?q=BM+College+Rahika+Madhubani+Bihar+847211&output=embed" 
@@ -110,7 +113,7 @@ export default function ContactPage() {
                     referrerPolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-          </div>
+          </AnimatedOnScroll>
         </div>
       </section>
       <AchievementsSection />
