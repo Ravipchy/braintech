@@ -145,27 +145,25 @@ export default function Home() {
       <section className="relative w-full min-h-screen flex items-center justify-center bg-black overflow-hidden">
         <FloatingCode />
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
-            <div className="bg-black/60 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10 shadow-xl">
-                <AnimatedOnScroll animation="fadeInUp">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
-                    We Build <Typewriter />
-                    </h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-                    We build cutting-edge solutions that empower businesses to thrive in the digital age.
-                    </p>
-                    <div className="mt-8 flex justify-center gap-4">
-                    <Button asChild size="lg" className="funky-shadow transition-all hover:scale-105 hover:shadow-lg active:shadow-sm active:translate-y-px group">
-                        <Link href="/services">
-                        Get Started
-                        <span className="ml-2 transition-transform group-hover:animate-bounce">🚀</span>
-                        </Link>
-                    </Button>
-                    <Button asChild variant="outline" size="lg" className="transition-transform hover:scale-105">
-                        <Link href="/contact">Get in Touch</Link>
-                    </Button>
-                    </div>
-                </AnimatedOnScroll>
-            </div>
+            <AnimatedOnScroll animation="fadeInUp">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
+                We Build <Typewriter />
+                </h1>
+                <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+                We build cutting-edge solutions that empower businesses to thrive in the digital age.
+                </p>
+                <div className="mt-8 flex justify-center gap-4">
+                <Button asChild size="lg" className="funky-shadow transition-all hover:scale-105 hover:shadow-lg active:shadow-sm active:translate-y-px group">
+                    <Link href="/services">
+                    Get Started
+                    <span className="ml-2 transition-transform group-hover:animate-bounce">🚀</span>
+                    </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="transition-transform hover:scale-105">
+                    <Link href="/contact">Get in Touch</Link>
+                </Button>
+                </div>
+            </AnimatedOnScroll>
         </div>
       </section>
 
