@@ -1,59 +1,42 @@
 
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-interface TypewriterProps {
-  text: string;
-  speed?: number;
+const texts = ["Web Apps 💻", "AI Tools 🤖", "Cloud Solutions ☁️"];
+
+export function Typewriter({
+  className,
+}: {
   className?: string;
-}
+}) {
+  const [index, setIndex] = useState(0);
 
-export function Typewriter({ text, speed = 0.1, className }: TypewriterProps) {
-  const characters = Array.from(text);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, 3000); // Change text every 3 seconds
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: speed, delayChildren: i * 0.04 },
-    }),
-  };
-
-  const child = {
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      x: -20,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <motion.span
-      style={{ display: "inline-block", overflow: "hidden" }}
-      variants={container}
-      initial="hidden"
-      animate="visible"
-      className={className}
-    >
-      {characters.map((char, index) => (
-        <motion.span key={index} variants={child} style={{ display: "inline-block" }}>
-          {char}
+    <span className={className}>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={texts[index]}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block"
+        >
+          {texts[index]}
         </motion.span>
-      ))}
-    </motion.span>
+      </AnimatePresence>
+    </span>
   );
 }
+
+    

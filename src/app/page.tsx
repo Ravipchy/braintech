@@ -10,6 +10,7 @@ import { posts } from "@/lib/blog-data";
 import { FaqSection } from "@/components/common/faq-section";
 import { Badge } from "@/components/ui/badge";
 import { AchievementsSection } from "@/components/achievements-section";
+import { Typewriter } from "@/components/typewriter";
 
 const homeFaqs = [
   {
@@ -137,19 +138,22 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card overflow-hidden">
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-secondary opacity-50 animate-[spin_20s_linear_infinite]" />
+      <section className="relative w-full min-h-screen flex items-center justify-center bg-card overflow-hidden">
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary via-accent to-secondary animate-gradient-xy" />
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <AnimatedOnScroll animation="fadeInUp">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
-              Building the Future of Software 🚀
+              We Build <Typewriter text="Web Apps 💻" />
             </h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
               We build cutting-edge solutions that empower businesses to thrive in the digital age.
             </p>
             <div className="mt-8 flex justify-center gap-4">
-              <Button asChild size="lg" className="funky-shadow transition-all hover:scale-105 hover:shadow-lg active:shadow-sm active:translate-y-px">
-                <Link href="/services">Explore Our Services</Link>
+              <Button asChild size="lg" className="funky-shadow transition-all hover:scale-105 hover:shadow-lg active:shadow-sm active:translate-y-px group">
+                <Link href="/services">
+                  Get Started
+                  <span className="ml-2 transition-transform group-hover:animate-bounce">🚀</span>
+                </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="transition-transform hover:scale-105">
                 <Link href="/contact">Get in Touch</Link>
@@ -336,3 +340,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
