@@ -142,7 +142,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative w-full min-h-screen flex items-center justify-center bg-gray-950 overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center justify-center bg-black overflow-hidden">
         <FloatingCode />
         <div className="absolute inset-0 bg-radial-gradient-dark"></div>
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
