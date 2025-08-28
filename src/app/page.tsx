@@ -150,13 +150,13 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <AnimatedOnScroll animation="fadeInUp">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
-              Innovating the Future with <Typewriter text="Intelligent Technology" />
+              Innovating the Future with <Typewriter text="Intelligent Technology 🚀" />
             </h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
               We build cutting-edge solutions that empower businesses to thrive in the digital age.
             </p>
             <div className="mt-8 flex justify-center gap-4">
-              <Button asChild size="lg" className="transition-transform hover:scale-105">
+              <Button asChild size="lg" className="funky-shadow transition-all hover:scale-105 hover:shadow-lg active:shadow-sm active:translate-y-px">
                 <Link href="/services">Explore Our Services</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="transition-transform hover:scale-105">
@@ -178,7 +178,7 @@ export default function Home() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
-                <Card className="text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
+                <Card className="text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(5deg)_rotateX(-5deg)] flex flex-col h-full">
                   <CardHeader>
                     <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                       {service.icon}
@@ -209,7 +209,7 @@ export default function Home() {
               <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {whyChooseUsFeatures.map((feature, index) => (
                       <AnimatedOnScroll key={feature.title} animation="fadeInUp" delay={index * 0.1}>
-                          <Card className="text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
+                          <Card className="text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(-5deg)_rotateX(5deg)] flex flex-col h-full">
                               <CardHeader>
                                   <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
                                       {feature.icon}
