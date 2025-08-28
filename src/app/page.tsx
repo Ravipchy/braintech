@@ -1,4 +1,6 @@
 
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -11,6 +13,7 @@ import { FaqSection } from "@/components/common/faq-section";
 import { Badge } from "@/components/ui/badge";
 import { AchievementsSection } from "@/components/achievements-section";
 import { Typewriter } from "@/components/typewriter";
+import { motion } from "framer-motion";
 
 const homeFaqs = [
   {
@@ -174,20 +177,31 @@ export default function Home() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
-                <Card className="text-center funky-shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(5deg)_rotateX(-5deg)] flex flex-col h-full">
-                  <CardHeader>
-                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                      {service.icon}
-                    </div>
-                    <CardTitle className="mt-6">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col">
-                    <p className="text-muted-foreground flex-grow">{service.description}</p>
-                    <Button asChild variant="link" className="mt-4">
-                        <Link href={service.link}>Learn More</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+                 <motion.div
+                  whileHover={{ scale: 1.05, rotateY: 5, rotateX: -5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  className="group relative"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                  <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full">
+                    <CardHeader>
+                      <motion.div
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10"
+                      >
+                        {service.icon}
+                      </motion.div>
+                      <CardTitle className="mt-6">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow flex flex-col">
+                      <p className="text-muted-foreground flex-grow">{service.description}</p>
+                      <Button asChild variant="link" className="mt-4">
+                          <Link href={service.link}>Learn More</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </AnimatedOnScroll>
             ))}
           </div>
@@ -340,5 +354,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
