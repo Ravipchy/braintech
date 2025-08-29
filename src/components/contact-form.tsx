@@ -1,18 +1,20 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
+import { motion, AnimatePresence } from "framer-motion";
+import Confetti from 'react-confetti';
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader2 } from "lucide-react";
+import { Loader2, Check } from "lucide-react";
 
 
 const contactFormSchema = z.object({
@@ -24,9 +26,12 @@ const contactFormSchema = z.object({
 
 type FormData = z.infer<typeof contactFormSchema>;
 
+type SubmissionStatus = "idle" | "loading" | "success";
+
 export function ContactForm() {
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<SubmissionStatus>("idle");
   const { toast } = useToast();
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const form = useForm<FormData>({
     resolver: zodResolver(contactFormSchema),
@@ -39,21 +44,33 @@ export function ContactForm() {
   });
 
   async function onSubmit(data: FormData) {
-    setLoading(true);
+    setStatus("loading");
     // In a static site, we can't perform server-side form submission.
     // We'll simulate a delay and then show a message.
     setTimeout(() => {
+        setStatus("success");
+        setShowConfetti(true);
         toast({
-          variant: "destructive",
-          title: "Form Submission Unavailable",
-          description: "This contact form is for demonstration purposes only in this static version of the site.",
+          title: "Message Sent! 🚀",
+          description: "Thanks for reaching out. We'll get back to you soon!",
         });
-        setLoading(false);
-    }, 1000);
+        setTimeout(() => {
+            setShowConfetti(false);
+            setStatus("idle");
+            form.reset();
+        }, 4000);
+    }, 1500);
   };
+
+  const buttonCopy = {
+    idle: "Let's Talk 🎤",
+    loading: "Submitting...",
+    success: "Sent!",
+  }
 
   return (
     <Card>
+      {showConfetti && <Confetti recycle={false} numberOfPieces={200} onConfettiComplete={() => setShowConfetti(false)} />}
       <CardHeader>
         <CardTitle>Send us a Message</CardTitle>
         <CardDescription>Fill out your details and we will get back to you.</CardDescription>
@@ -117,15 +134,21 @@ export function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={loading} className="w-full">
-              {loading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
-                </>
-              ) : (
-                "Submit"
-              )}
+            <Button type="submit" disabled={status !== 'idle'} className="w-full relative overflow-hidden">
+              <AnimatePresence mode="wait">
+                 <motion.span
+                    key={status}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center justify-center"
+                  >
+                    {status === 'loading' && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    {status === 'success' && <Check className="mr-2 h-4 w-4" />}
+                    {buttonCopy[status]}
+                 </motion.span>
+              </AnimatePresence>
             </Button>
           </form>
         </Form>
