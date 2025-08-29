@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -127,14 +128,6 @@ export default function Home() {
       author: "Emily White",
       company: "DataDriven Inc.",
     },
-  ];
-
-  const partners = [
-    { name: "Innovate Corp", logo: "https://placehold.co/150x50.png", hint: "corporate logo" },
-    { name: "Future Enterprises", logo: "https://placehold.co/150x50.png", hint: "corporate logo" },
-    { name: "DataDriven Inc.", logo: "https://placehold.co/150x50.png", hint: "corporate logo" },
-    { name: "TechGiant", logo: "https://placehold.co/150x50.png", hint: "corporate logo" },
-    { name: "StartupX", logo: "https://placehold.co/150x50.png", hint: "corporate logo" },
   ];
 
   const latestPosts = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
@@ -342,31 +335,9 @@ export default function Home() {
         </div>
       </section>
       
-      <section id="partners" className="w-full py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-           <AnimatedOnScroll animation="fadeInUp" className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Partners</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              We are proud to collaborate with industry leaders.
-            </p>
-          </AnimatedOnScroll>
-          <div className="mt-12 flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {partners.map((partner, i) => (
-               <AnimatedOnScroll key={partner.name} animation="fadeInUp" delay={i * 0.1}>
-                  <Image 
-                    src={partner.logo} 
-                    alt={`${partner.name} logo`}
-                    width={150}
-                    height={50}
-                    data-ai-hint={partner.hint}
-                    className="opacity-60 hover:opacity-100 transition-opacity duration-300"
-                  />
-               </AnimatedOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
       <AchievementsSection />
       <FaqSection items={homeFaqs} />
     </div>
   );
+
+    
