@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const texts = ["Web Apps 💻", "AI Tools 🤖", "Cloud Solutions ☁️"];
 
@@ -22,7 +23,7 @@ export function Typewriter({
   }, []);
 
   return (
-    <span className={className}>
+    <span className={cn(className)}>
       <AnimatePresence mode="wait">
         <motion.span
           key={texts[index]}
@@ -30,7 +31,7 @@ export function Typewriter({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="inline-block"
+          className="inline-block text-primary"
         >
           {texts[index]}
         </motion.span>

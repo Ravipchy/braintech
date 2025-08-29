@@ -147,10 +147,10 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
             <AnimatedOnScroll animation="fadeInUp">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
-                We Build <Typewriter />
+                  We Build <Typewriter />
                 </h1>
                 <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-                We build cutting-edge solutions that empower businesses to thrive in the digital age.
+                  We build cutting-edge solutions that empower businesses to thrive in the digital age.
                 </p>
                 <div className="mt-8 flex justify-center gap-4">
                 <Button asChild size="lg" className="funky-shadow transition-all hover:scale-105 hover:shadow-lg active:shadow-sm active:translate-y-px group">
@@ -183,7 +183,7 @@ export default function Home() {
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   className="group relative"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                   <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full">
                     <CardHeader>
                       <motion.div
@@ -209,7 +209,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="why-choose-us" className="w-full py-16 md:py-24 bg-secondary">
+      <section id="why-choose-us" className="w-full py-16 md:py-24 bg-card">
           <div className="container mx-auto px-4 md:px-6">
               <AnimatedOnScroll animation="fadeInUp" className="text-center">
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Why Choose Us</h2>
@@ -225,8 +225,8 @@ export default function Home() {
                               transition={{ type: "spring", stiffness: 400, damping: 15 }}
                               className="group relative h-full"
                             >
-                              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                              <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full bg-card">
+                              <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                              <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full">
                                   <CardHeader>
                                       <motion.div 
                                         whileHover={{ scale: 1.2, rotate: 10 }}
@@ -263,7 +263,7 @@ export default function Home() {
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     className="group relative h-full"
                  >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                     <Card className="relative flex flex-col overflow-hidden funky-shadow transition-all duration-300 h-full rounded-xl">
                       <div className="overflow-hidden">
                         <Link href={`/blog/${post.slug}`}>
@@ -311,7 +311,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="w-full py-16 md:py-24 bg-secondary">
+      <section id="testimonials" className="w-full py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
            <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">What Our Clients Say</h2>
