@@ -58,7 +58,6 @@ const values = [
 ];
 
 const whyChooseUsPoints = [
-    "10+ years of combined IT expertise",
     "120+ satisfied clients worldwide",
     "250+ successful projects delivered",
     "Certified developers & engineers",
