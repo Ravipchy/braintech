@@ -110,7 +110,7 @@ function FooterAccordionItem({ title, links }: { title: string, links: { href: s
 export function Footer() {
   return (
     <>
-      <footer className="bg-card border-t">
+      <footer className="bg-secondary border-t">
         <div className="container mx-auto px-4 py-8 md:px-6">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* About Section */}

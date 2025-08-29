@@ -40,7 +40,8 @@ export function Header() {
   return (
     <header className={cn(
         "sticky top-0 z-50 w-full border-b transition-colors duration-300",
-        isScrolled ? "bg-card/95 backdrop-blur-sm" : "bg-card"
+        isScrolled ? "bg-background/95 backdrop-blur-sm" : "bg-transparent border-transparent",
+        pathname === "/" && !isScrolled ? "text-white" : "text-foreground"
       )}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
@@ -58,7 +59,7 @@ export function Header() {
                     "after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-full after:bg-primary after:origin-center after:scale-x-0 after:transition-transform hover:after:scale-x-100",
                     isActive
                     ? "text-primary after:scale-x-100"
-                    : "text-muted-foreground"
+                    : (pathname === '/' && !isScrolled ? "text-white hover:text-primary" : "text-muted-foreground")
                 )}
                 >
                 {link.label}
@@ -76,7 +77,7 @@ export function Header() {
                 <span className="sr-only">Open navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="bg-background text-foreground">
               <div className="flex flex-col gap-6 p-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={closeMobileMenu}>
                   <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />

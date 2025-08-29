@@ -73,7 +73,7 @@ const servicesFaqs = [
 export function ServicesClientPage() {
   return (
     <>
-      <section className="w-full py-20 md:py-32 bg-card">
+      <section className="w-full py-20 md:py-32 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <AnimatedOnScroll animation="fadeInUp">
             <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">Our Services</h1>
@@ -94,8 +94,8 @@ export function ServicesClientPage() {
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     className="group relative h-full"
                   >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                    <Card className="relative flex flex-col overflow-hidden shadow-lg h-full">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                    <Card className="relative flex flex-col overflow-hidden shadow-lg h-full bg-card">
                       <div className="overflow-hidden">
                         <Image
                           src={service.imageUrl}

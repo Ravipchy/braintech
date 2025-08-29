@@ -75,7 +75,7 @@ export function AchievementStat({ icon, label, value, unit, progress }: Achievem
   return (
     <div ref={ref} className="relative p-1 overflow-hidden rounded-xl h-full">
         <div className={cn(
-            "absolute inset-0 bg-gradient-to-br from-pink-500 via-purple-500 to-teal-500 transition-all duration-[2500ms] ease-in-out",
+            "absolute inset-0 bg-gradient-to-br from-blue-500 via-cyan-500 to-green-500 transition-all duration-[2500ms] ease-in-out",
             isAnimated ? "opacity-100 [clip-path:circle(150%_at_50%_50%)]" : "opacity-0 [clip-path:circle(0%_at_50%_50%)]"
         )}></div>
         <Card className="relative text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-card/80 backdrop-blur-sm">
