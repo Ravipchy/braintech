@@ -39,9 +39,7 @@ export function Header() {
 
   return (
     <header className={cn(
-        "sticky top-0 z-50 w-full border-b transition-colors duration-300",
-        isScrolled ? "bg-background/95 backdrop-blur-sm" : "bg-transparent border-transparent",
-        pathname === "/" && !isScrolled ? "text-white" : "text-foreground"
+        "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm transition-colors duration-300"
       )}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
@@ -59,7 +57,7 @@ export function Header() {
                     "after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-full after:bg-primary after:origin-center after:scale-x-0 after:transition-transform hover:after:scale-x-100",
                     isActive
                     ? "text-primary after:scale-x-100"
-                    : (pathname === '/' && !isScrolled ? "text-white hover:text-primary" : "text-muted-foreground")
+                    : "text-muted-foreground"
                 )}
                 >
                 {link.label}
