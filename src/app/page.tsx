@@ -142,14 +142,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative w-full min-h-screen flex items-center justify-center bg-black overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center justify-center bg-card overflow-hidden">
         <FloatingCode />
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
             <AnimatedOnScroll animation="fadeInUp">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-white font-headline">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground font-headline">
                 We Build <Typewriter />
                 </h1>
-                <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-slate-300">
+                <p className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
                 We build cutting-edge solutions that empower businesses to thrive in the digital age.
                 </p>
                 <div className="mt-8 flex justify-center gap-4">
@@ -159,7 +159,7 @@ export default function Home() {
                     <span className="ml-2 transition-transform group-hover:animate-bounce">🚀</span>
                     </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="transition-transform hover:scale-105 text-white border-white hover:bg-white hover:text-black">
+                <Button asChild variant="secondary" size="lg" className="transition-transform hover:scale-105">
                     <Link href="/contact">Get in Touch</Link>
                 </Button>
                 </div>
