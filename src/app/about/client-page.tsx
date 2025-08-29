@@ -7,7 +7,7 @@ import { FaqSection } from "@/components/common/faq-section";
 import { AchievementsSection } from "@/components/achievements-section";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Lightbulb, Gem, Users, Award, BrainCircuit, Target, CheckCircle, Rocket } from "lucide-react";
+import { Lightbulb, Gem, Users, Award, BrainCircuit, Target, CheckCircle, Rocket, Handshake, Star } from "lucide-react";
 import { motion } from 'framer-motion';
 
 const aboutFaqs = [
@@ -31,38 +31,38 @@ const aboutFaqs = [
 
 const values = [
     {
-        icon: <Lightbulb className="h-10 w-10 text-primary" />,
+        icon: <Rocket className="h-10 w-10 text-primary" />,
         title: "Innovation",
-        description: "We constantly explore new ideas and technologies to deliver cutting-edge solutions.",
+        description: "Always exploring new possibilities.",
     },
     {
-        icon: <Gem className="h-10 w-10 text-primary" />,
+        icon: <Handshake className="h-10 w-10 text-primary" />,
         title: "Integrity",
-        description: "We operate with transparency and honesty in everything we do, building trust with our clients.",
+        description: "Building trust through transparency.",
     },
     {
-        icon: <Users className="h-10 w-10 text-primary" />,
+        icon: <Lightbulb className="h-10 w-10 text-primary" />,
         title: "Customer First",
-        description: "Our clients' success is our success. We prioritize their needs and goals above all else.",
+        description: "Your success is our priority.",
     },
     {
         icon: <Award className="h-10 w-10 text-primary" />,
-        title: "Quality Excellence",
-        description: "We are committed to the highest standards of quality in our work, ensuring robust and reliable solutions.",
+        title: "Excellence",
+        description: "Delivering high-quality solutions.",
     },
      {
         icon: <BrainCircuit className="h-10 w-10 text-primary" />,
         title: "Continuous Learning",
-        description: "The tech world never stops evolving, and neither do we. We are dedicated to lifelong learning.",
+        description: "Growing with evolving tech.",
     },
 ];
 
 const whyChooseUsPoints = [
-    "Years of expertise in the IT industry",
-    "Certified and experienced developers & engineers",
-    "Proven track record with over 120 satisfied clients",
-    "End-to-end services from design to support",
-    "Focus on cutting-edge tech like AI, Cloud, and Automation",
+    "10+ years of combined IT expertise",
+    "120+ satisfied clients worldwide",
+    "250+ successful projects delivered",
+    "Certified developers & engineers",
+    "Specialized in cutting-edge technologies: AI, Cloud, Automation",
 ];
 
 export function AboutClientPage() {
@@ -71,15 +71,26 @@ export function AboutClientPage() {
       <section className="w-full py-20 md:py-32 bg-card">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <AnimatedOnScroll animation="fadeInUp">
-            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">About BrainTech</h1>
+            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">About BrainTech Technology Pvt. Ltd.</h1>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-              BrainTech Technology Pvt. Ltd. is a leading IT solutions provider, helping businesses harness the power of Web Development, AI, and Cloud Solutions.
+              Delivering innovation, efficiency, and growth through technology.
             </p>
           </AnimatedOnScroll>
         </div>
       </section>
 
       <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+            <AnimatedOnScroll animation="fadeInUp">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Who We Are</h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                    BrainTech Technology Pvt. Ltd. is a trusted partner in digital transformation. We specialize in Web Development, AI Solutions, and Cloud Automation—helping businesses turn bold ideas into reality.
+                </p>
+            </AnimatedOnScroll>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <AnimatedOnScroll animation="fadeInLeft">
@@ -87,7 +98,7 @@ export function AboutClientPage() {
                 <Target className="h-12 w-12 text-primary mb-4" />
                 <h2 className="text-3xl font-bold font-headline">Our Mission</h2>
                 <p className="mt-4 text-muted-foreground max-w-md">
-                  To empower businesses with innovative technology solutions that drive growth, efficiency, and a competitive edge.
+                  To empower businesses with innovative technology solutions that drive measurable results.
                 </p>
               </div>
             </AnimatedOnScroll>
@@ -96,7 +107,7 @@ export function AboutClientPage() {
                 <Rocket className="h-12 w-12 text-primary mb-4" />
                 <h2 className="text-3xl font-bold font-headline">Our Vision</h2>
                 <p className="mt-4 text-muted-foreground max-w-md">
-                  To become a global leader in delivering smart, sustainable, and impactful digital solutions that shape the future.
+                  To be recognized globally as a leader in creating smart, sustainable, and impactful digital solutions.
                 </p>
               </div>
             </AnimatedOnScroll>
@@ -104,7 +115,7 @@ export function AboutClientPage() {
         </div>
       </section>
 
-      <section id="values" className="w-full py-16 md:py-24 bg-card">
+      <section id="values" className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
             <AnimatedOnScroll animation="fadeInUp" className="text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Our Core Values</h2>
@@ -167,7 +178,7 @@ export function AboutClientPage() {
         </div>
       </section>
       
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6">
             <AnimatedOnScroll animation="fadeInUp" className="text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Why Choose Us?</h2>
@@ -175,17 +186,20 @@ export function AboutClientPage() {
                     Partner with us for unparalleled expertise and results.
                 </p>
             </AnimatedOnScroll>
-            <div className="mt-12 max-w-4xl mx-auto">
-                <ul className="space-y-4">
-                    {whyChooseUsPoints.map((point, index) => (
-                        <AnimatedOnScroll key={index} animation="fadeInLeft" delay={index * 0.1}>
-                            <li className="flex items-start gap-4">
-                                <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                                <span className="text-lg text-muted-foreground">{point}</span>
-                            </li>
-                        </AnimatedOnScroll>
-                    ))}
-                </ul>
+            <div className="mt-12 max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                {whyChooseUsPoints.map((point, index) => (
+                    <AnimatedOnScroll key={index} animation="fadeInLeft" delay={index * 0.1}>
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                        >
+                        <Card className="p-4 flex items-center gap-4 h-full funky-shadow">
+                            <Star className="w-8 h-8 text-primary flex-shrink-0" />
+                            <span className="text-lg text-muted-foreground">{point}</span>
+                        </Card>
+                        </motion.div>
+                    </AnimatedOnScroll>
+                ))}
             </div>
         </div>
       </section>
@@ -195,7 +209,7 @@ export function AboutClientPage() {
       <section className="w-full py-16 md:py-24 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <AnimatedOnScroll animation="fadeInUp">
-                <h2 className="text-3xl font-bold font-headline">Let's Build Something Great Together</h2>
+                <h2 className="text-3xl font-bold font-headline">Let's Build Something Extraordinary Together</h2>
                 <p className="mt-4 max-w-3xl mx-auto text-lg text-primary-foreground/80">
                     Ready to start your next project? Get in touch with our team of experts today.
                 </p>
