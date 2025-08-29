@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { FaqSection } from "@/components/common/faq-section";
