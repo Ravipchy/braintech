@@ -220,17 +220,27 @@ export default function Home() {
               <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {whyChooseUsFeatures.map((feature, index) => (
                       <AnimatedOnScroll key={feature.title} animation="fadeInUp" delay={index * 0.1}>
-                          <Card className="text-center funky-shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:[transform:rotateY(-5deg)_rotateX(5deg)] flex flex-col h-full">
-                              <CardHeader>
-                                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                                      {feature.icon}
-                                  </div>
-                                  <CardTitle className="mt-6">{feature.title}</CardTitle>
-                              </CardHeader>
-                              <CardContent>
-                                  <p className="text-muted-foreground">{feature.description}</p>
-                              </CardContent>
-                          </Card>
+                           <motion.div
+                              whileHover={{ scale: 1.05, rotateY: 5, rotateX: -5 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                              className="group relative h-full"
+                            >
+                              <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                              <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full">
+                                  <CardHeader>
+                                      <motion.div 
+                                        whileHover={{ scale: 1.2, rotate: 10 }}
+                                        transition={{ type: "spring", stiffness: 300 }}
+                                        className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+                                          {feature.icon}
+                                      </motion.div>
+                                      <CardTitle className="mt-6">{feature.title}</CardTitle>
+                                  </CardHeader>
+                                  <CardContent>
+                                      <p className="text-muted-foreground">{feature.description}</p>
+                                  </CardContent>
+                              </Card>
+                           </motion.div>
                       </AnimatedOnScroll>
                   ))}
               </div>
@@ -248,41 +258,48 @@ export default function Home() {
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {latestPosts.map((post, index) => (
               <AnimatedOnScroll key={post.slug} animation="fadeInUp" delay={index * 0.1}>
-                 <Card className="flex flex-col overflow-hidden funky-shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full rounded-xl">
-                    <div className="overflow-hidden">
-                      <Link href={`/blog/${post.slug}`}>
-                        <Image
-                          src={post.imageUrl}
-                          alt={post.title}
-                          width={600}
-                          height={400}
-                          data-ai-hint={post.imageHint}
-                          className="w-full h-56 object-cover transition-transform duration-500 hover:scale-110"
-                        />
-                      </Link>
-                    </div>
-                    <CardHeader>
-                      <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <Badge variant="secondary" className="w-fit">{post.category}</Badge>
-                         <div className="flex items-center">
-                            <Clock className="mr-1.5 h-4 w-4" />
-                            <span>{post.readingTime}</span>
-                         </div>
+                 <motion.div
+                    whileHover={{ scale: 1.05, rotateY: 2, rotateX: -2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="group relative h-full"
+                 >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                    <Card className="relative flex flex-col overflow-hidden funky-shadow transition-all duration-300 h-full rounded-xl">
+                      <div className="overflow-hidden">
+                        <Link href={`/blog/${post.slug}`}>
+                          <Image
+                            src={post.imageUrl}
+                            alt={post.title}
+                            width={600}
+                            height={400}
+                            data-ai-hint={post.imageHint}
+                            className="w-full h-56 object-cover transition-transform duration-500 hover:scale-110"
+                          />
+                        </Link>
                       </div>
-                      <CardTitle className="text-xl h-14 line-clamp-2 pt-2">
-                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <p className="text-muted-foreground line-clamp-3">{post.description}</p>
-                    </CardContent>
-                    <div className="p-6 pt-0 flex justify-between items-center">
-                       <p className="text-sm text-muted-foreground">{post.date}</p>
-                       <Button asChild variant="link" className="p-0 h-auto">
-                          <Link href={`/blog/${post.slug}`}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                      </Button>
-                    </div>
-                  </Card>
+                      <CardHeader>
+                        <div className="flex items-center justify-between text-sm text-muted-foreground">
+                          <Badge variant="secondary" className="w-fit">{post.category}</Badge>
+                           <div className="flex items-center">
+                              <Clock className="mr-1.5 h-4 w-4" />
+                              <span>{post.readingTime}</span>
+                           </div>
+                        </div>
+                        <CardTitle className="text-xl h-14 line-clamp-2 pt-2">
+                          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex-grow">
+                        <p className="text-muted-foreground line-clamp-3">{post.description}</p>
+                      </CardContent>
+                      <div className="p-6 pt-0 flex justify-between items-center">
+                         <p className="text-sm text-muted-foreground">{post.date}</p>
+                         <Button asChild variant="link" className="p-0 h-auto">
+                            <Link href={`/blog/${post.slug}`}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                        </Button>
+                      </div>
+                    </Card>
+                 </motion.div>
               </AnimatedOnScroll>
             ))}
           </div>

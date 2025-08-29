@@ -5,6 +5,7 @@ import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import type { Metadata } from 'next';
 import { FaqSection } from "@/components/common/faq-section";
 import { AchievementsSection } from "@/components/achievements-section";
+import { motion } from "framer-motion";
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -93,24 +94,31 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
-                <Card className="flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                  <div className="overflow-hidden">
-                    <Image
-                      src={service.imageUrl}
-                      alt={service.title}
-                      width={600}
-                      height={400}
-                      data-ai-hint={service.hint}
-                      className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle>{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <CardDescription>{service.description}</CardDescription>
-                  </CardContent>
-                </Card>
+                 <motion.div
+                    whileHover={{ scale: 1.05, rotateY: 2, rotateX: -2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="group relative h-full"
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                    <Card className="relative flex flex-col overflow-hidden shadow-lg h-full">
+                      <div className="overflow-hidden">
+                        <Image
+                          src={service.imageUrl}
+                          alt={service.title}
+                          width={600}
+                          height={400}
+                          data-ai-hint={service.hint}
+                          className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                        />
+                      </div>
+                      <CardHeader>
+                        <CardTitle>{service.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex-grow">
+                        <CardDescription>{service.description}</CardDescription>
+                      </CardContent>
+                    </Card>
+                 </motion.div>
               </AnimatedOnScroll>
             ))}
           </div>

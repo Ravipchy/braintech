@@ -5,6 +5,7 @@ import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import type { Metadata } from 'next';
 import { FaqSection } from "@/components/common/faq-section";
 import { AchievementsSection } from "@/components/achievements-section";
+import { motion } from "framer-motion";
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -106,29 +107,23 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, i) => (
               <AnimatedOnScroll key={member.name} animation="fadeInUp" delay={i * 0.1}>
-                <div className="[perspective:1000px] group">
-                   <Card className="text-center transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] funky-shadow">
-                    <div className="h-full w-full [backface-visibility:hidden]">
-                      <CardContent className="pt-6">
-                        <Avatar className="w-24 h-24 mx-auto">
-                          <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.hint} />
-                          <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                        <h3 className="mt-4 text-lg font-semibold">{member.name}</h3>
-                        <p className="text-primary">{member.role}</p>
-                      </CardContent>
-                    </div>
-                    <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                       <Card className="flex flex-col items-center justify-center h-full">
-                         <CardContent className="pt-6">
-                            <h3 className="text-lg font-semibold">{member.name}</h3>
-                            <p className="text-primary text-sm">{member.role}</p>
-                            <p className="mt-2 text-xs text-muted-foreground px-4">As Founder & CEO, Ravi P Choudhary drives the company's vision, strategy, and growth, ensuring BrainTech remains at the forefront of technological innovation.</p>
-                         </CardContent>
-                       </Card>
-                    </div>
+                 <motion.div
+                  whileHover={{ scale: 1.05, rotateY: 5, rotateX: -5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  className="group relative"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                  <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full">
+                    <CardContent className="pt-6">
+                      <Avatar className="w-24 h-24 mx-auto">
+                        <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.hint} />
+                        <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <h3 className="mt-4 text-lg font-semibold">{member.name}</h3>
+                      <p className="text-primary">{member.role}</p>
+                    </CardContent>
                   </Card>
-                </div>
+                 </motion.div>
               </AnimatedOnScroll>
             ))}
           </div>
