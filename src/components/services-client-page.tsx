@@ -1,51 +1,53 @@
 
 "use client";
 
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { FaqSection } from "@/components/common/faq-section";
 import { AchievementsSection } from "@/components/achievements-section";
 import { motion } from "framer-motion";
+import { Bot, Code, LineChart, Cloud, Smartphone, PenTool, ShieldCheck } from "lucide-react";
+import Link from 'next/link';
 
 const services = [
-  {
-    title: "Custom AI & Machine Learning",
-    description: "Bespoke AI models and machine learning algorithms.",
-    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=AI",
-    hint: "artificial intelligence"
-  },
-  {
-    title: "Enterprise Web Applications",
-    description: "Robust, secure, and scalable web applications.",
-    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Web",
-    hint: "web development code"
-  },
-  {
-    title: "Advanced Data Analytics & BI",
-    description: "End-to-end data analytics and business intelligence.",
-    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Data",
-    hint: "data analytics chart"
-  },
-  {
-    title: "Cloud Infrastructure & DevOps",
-    description: "Cloud and DevOps expertise for resilient infrastructure.",
-    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Cloud",
-    hint: "cloud computing servers"
-  },
-  {
-    title: "Mobile App Development",
-    description: "Engaging mobile apps for iOS and Android.",
-    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Mobile",
-    hint: "mobile app interface"
-  },
-  {
-    title: "Technology Consulting",
-    description: "Strategic consulting for informed technology decisions.",
-    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Consult",
-    hint: "business people meeting"
-  },
-];
+    {
+      icon: <Code className="h-10 w-10 text-primary" />,
+      title: "Custom Web Development",
+      description: "Tailored websites and web apps built with modern frameworks to meet your specific needs.",
+      link: "/services"
+    },
+    {
+      icon: <Smartphone className="h-10 w-10 text-primary" />,
+      title: "Mobile App Development",
+      description: "Cross-platform Android & iOS apps with smooth performance and engaging user experiences.",
+      link: "/services"
+    },
+    {
+      icon: <Cloud className="h-10 w-10 text-primary" />,
+      title: "Cloud & DevOps Solutions",
+      description: "Scalable cloud hosting, automation, and deployment services for optimal performance.",
+      link: "/services"
+    },
+    {
+      icon: <Bot className="h-10 w-10 text-primary" />,
+      title: "AI & Machine Learning",
+      description: "Smart AI tools and predictive analytics for business growth and data-driven decisions.",
+      link: "/services"
+    },
+    {
+      icon: <ShieldCheck className="h-10 w-10 text-primary" />,
+      title: "Cybersecurity Services",
+      description: "Protect your digital assets with enterprise-grade security solutions and threat mitigation.",
+      link: "/services"
+    },
+    {
+      icon: <PenTool className="h-10 w-10 text-primary" />,
+      title: "UI/UX Design",
+      description: "Modern, user-friendly, and accessible designs to enhance user engagement and satisfaction.",
+      link: "/services"
+    },
+  ];
 
 const servicesFaqs = [
   {
@@ -84,30 +86,36 @@ export function ServicesClientPage() {
         </div>
       </section>
 
-      <section className="py-12">
+      <section id="services" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
                  <motion.div
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    className="group relative h-full"
-                  >
-                    <Card className="relative flex flex-col items-center text-center p-6 shadow-lg h-full bg-card funky-shadow">
-                      <Image
-                          src={service.imageUrl}
-                          alt={`${service.title} icon`}
-                          width={100}
-                          height={100}
-                          data-ai-hint={service.hint}
-                          className="rounded-lg"
-                        />
-                      <CardHeader className="p-2">
-                        <CardTitle className="mt-4">{service.title}</CardTitle>
-                      </CardHeader>
-                    </Card>
-                 </motion.div>
+                  whileHover={{ scale: 1.05, rotateY: 5, rotateX: -5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  className="group relative"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                  <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full bg-card">
+                    <CardHeader>
+                      <motion.div
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10"
+                      >
+                        {service.icon}
+                      </motion.div>
+                      <CardTitle className="mt-6">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow flex flex-col">
+                      <p className="text-muted-foreground flex-grow">{service.description}</p>
+                      <Button asChild variant="link" className="mt-4">
+                          <Link href={service.link}>Learn More</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </AnimatedOnScroll>
             ))}
           </div>
