@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { FaqSection } from "@/components/common/faq-section";
@@ -11,38 +11,38 @@ import { motion } from "framer-motion";
 const services = [
   {
     title: "Custom AI & Machine Learning",
-    description: "Develop bespoke AI models and machine learning algorithms to solve your unique business challenges. From natural language processing to computer vision, we deliver intelligent systems that learn and adapt.",
-    imageUrl: "https://picsum.photos/seed/ai-service/600/400",
+    description: "Bespoke AI models and machine learning algorithms.",
+    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=AI",
     hint: "artificial intelligence"
   },
   {
     title: "Enterprise Web Applications",
-    description: "We architect and build robust, secure, and scalable web applications for enterprises. Our solutions are designed for high performance and seamless integration with your existing systems.",
-    imageUrl: "https://picsum.photos/seed/web-service/600/400",
+    description: "Robust, secure, and scalable web applications.",
+    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Web",
     hint: "web development code"
   },
   {
     title: "Advanced Data Analytics & BI",
-    description: "Unlock the potential of your data. We provide end-to-end data analytics and business intelligence services, including data warehousing, ETL pipelines, and interactive dashboards.",
-    imageUrl: "https://picsum.photos/seed/data-service/600/400",
+    description: "End-to-end data analytics and business intelligence.",
+    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Data",
     hint: "data analytics chart"
   },
   {
     title: "Cloud Infrastructure & DevOps",
-    description: "Optimize your development and deployment lifecycle with our cloud and DevOps expertise. We help you build resilient, automated, and cost-effective infrastructure on AWS, Azure, and Google Cloud.",
-    imageUrl: "https://picsum.photos/seed/cloud-service/600/400",
+    description: "Cloud and DevOps expertise for resilient infrastructure.",
+    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Cloud",
     hint: "cloud computing servers"
   },
   {
     title: "Mobile App Development",
-    description: "Create engaging and high-performance mobile applications for iOS and Android. Our team delivers a smooth user experience with a focus on quality, speed, and business goals.",
-    imageUrl: "https://picsum.photos/seed/mobile-service/600/400",
+    description: "Engaging mobile apps for iOS and Android.",
+    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Mobile",
     hint: "mobile app interface"
   },
   {
     title: "Technology Consulting",
-    description: "Navigate the complexities of the digital landscape with our expert guidance. We provide strategic consulting to help you make informed technology decisions and create a roadmap for success.",
-    imageUrl: "https://picsum.photos/seed/consult-service/600/400",
+    description: "Strategic consulting for informed technology decisions.",
+    imageUrl: "https://placehold.co/100x100/30D5C8/0B3A7D?text=Consult",
     hint: "business people meeting"
   },
 ];
@@ -73,7 +73,7 @@ const servicesFaqs = [
 export function ServicesClientPage() {
   return (
     <>
-      <section className="w-full py-20 md:py-32 bg-secondary">
+      <section className="w-full py-20 md:py-32 bg-card">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <AnimatedOnScroll animation="fadeInUp">
             <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter">Our Services</h1>
@@ -84,34 +84,28 @@ export function ServicesClientPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-12">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <AnimatedOnScroll key={service.title} animation="fadeInUp" delay={index * 0.1}>
                  <motion.div
-                    whileHover={{ scale: 1.05, rotateY: 2, rotateX: -2 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     className="group relative h-full"
                   >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                    <Card className="relative flex flex-col overflow-hidden shadow-lg h-full bg-card">
-                      <div className="overflow-hidden">
-                        <Image
+                    <Card className="relative flex flex-col items-center text-center p-6 shadow-lg h-full bg-card funky-shadow">
+                      <Image
                           src={service.imageUrl}
-                          alt={service.title}
-                          width={600}
-                          height={400}
+                          alt={`${service.title} icon`}
+                          width={100}
+                          height={100}
                           data-ai-hint={service.hint}
-                          className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                          className="rounded-lg"
                         />
-                      </div>
-                      <CardHeader>
-                        <CardTitle>{service.title}</CardTitle>
+                      <CardHeader className="p-2">
+                        <CardTitle className="mt-4">{service.title}</CardTitle>
                       </CardHeader>
-                      <CardContent className="flex-grow">
-                        <CardDescription>{service.description}</CardDescription>
-                      </CardContent>
                     </Card>
                  </motion.div>
               </AnimatedOnScroll>
