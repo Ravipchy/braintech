@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock } from "lucide-react";
+import { MapPin, Clock, CalendarDays } from "lucide-react";
 import type { Metadata } from 'next';
 import { AchievementsSection } from "@/components/achievements-section";
 
@@ -21,8 +21,9 @@ const jobOpenings = [
   {
     id: "swe-01",
     title: "Senior AI Engineer",
-    location: "Remote",
+    location: "Noida, Uttar Pradesh",
     type: "Full-time",
+    lastDateToApply: "30th Sept 2025",
     description: "We are seeking an experienced AI Engineer to lead the design and development of our next-generation machine learning models. You will work on challenging problems in NLP and computer vision, and mentor junior engineers.",
     responsibilities: [
       "Design, build, and deploy machine learning models.",
@@ -40,8 +41,9 @@ const jobOpenings = [
   {
     id: "fe-dev-01",
     title: "Frontend Developer (React)",
-    location: "New York, NY",
+    location: "Noida, Uttar Pradesh",
     type: "Full-time",
+    lastDateToApply: "30th Sept 2025",
     description: "We are looking for a skilled Frontend Developer to build intuitive and high-performance user interfaces for our web applications. You should have a passion for creating seamless user experiences.",
     responsibilities: [
         "Develop new user-facing features using React.js.",
@@ -59,8 +61,9 @@ const jobOpenings = [
   {
     id: "pm-01",
     title: "Product Manager, Data Platforms",
-    location: "San Francisco, CA",
+    location: "Noida, Uttar Pradesh",
     type: "Full-time",
+    lastDateToApply: "30th Sept 2025",
     description: "As a Product Manager for our Data Platforms team, you will define the strategy and roadmap for our data analytics products. You will work closely with customers, engineers, and designers to deliver value.",
     responsibilities: [
         "Define product strategy and roadmap.",
@@ -99,9 +102,10 @@ export default function CareersPage() {
                   <AccordionTrigger className="hover:bg-accent/50 px-4 rounded-md">
                     <div className="text-left">
                       <h3 className="text-lg font-semibold text-primary">{job.title}</h3>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
+                      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-sm text-muted-foreground mt-2">
                         <div className="flex items-center gap-1"><MapPin className="w-4 h-4" />{job.location}</div>
                         <div className="flex items-center gap-1"><Clock className="w-4 h-4" />{job.type}</div>
+                        <div className="flex items-center gap-1"><CalendarDays className="w-4 h-4" />Last Date to Apply: {job.lastDateToApply}</div>
                       </div>
                     </div>
                   </AccordionTrigger>

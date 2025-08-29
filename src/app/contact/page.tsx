@@ -81,7 +81,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Office</h3>
-                    <p className="text-muted-foreground">Near BM College, Rahika, Madhubani, Bihar – 847211</p>
+                    <p className="text-muted-foreground">Noida, Uttar Pradesh, 201318</p>
                   </div>
                 </div>
               </div>
@@ -98,13 +98,13 @@ export default function ContactPage() {
           <AnimatedOnScroll animation="fadeInUp" className="text-center">
             <h2 className="text-3xl font-bold font-headline">📍 Visit Us</h2>
             <p className="mt-2 text-lg text-muted-foreground">
-              Near BM College, Rahika, Madhubani, Bihar, 847211
+              Noida, Uttar Pradesh, 201318
             </p>
           </AnimatedOnScroll>
           <AnimatedOnScroll animation="fadeInUp" delay={0.2} className="mt-8">
             <div className="aspect-video overflow-hidden rounded-xl shadow-lg">
                 <iframe 
-                    src="https://www.google.com/maps?q=BM+College+Rahika+Madhubani+Bihar+847211&output=embed" 
+                    src="https://www.google.com/maps?q=Noida+Uttar+Pradesh+201318&output=embed" 
                     width="100%" 
                     height="100%" 
                     style={{ border:0 }}
