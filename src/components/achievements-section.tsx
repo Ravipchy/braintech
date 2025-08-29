@@ -5,33 +5,30 @@ import { useState } from "react";
 import { AchievementStat } from "@/components/achievement-stat";
 import { AnimatedOnScroll } from "@/components/animated-on-scroll";
 import { Button } from "@/components/ui/button";
-import { Users, Briefcase, Star, Headset } from "lucide-react";
+import { Users, Briefcase, Star } from "lucide-react";
 import { ScheduleMeetingPopup } from "@/components/schedule-meeting-popup";
 
 const achievements = [
   {
-    icon: <Star className="h-10 w-10 text-primary" />,
-    label: "Client Satisfaction Level",
-    value: 99,
-    unit: "%",
-    progress: 99,
-    progressColor: "bg-yellow-500",
+    icon: <Users className="h-10 w-10 text-primary" />,
+    label: "Total Clients",
+    value: 120,
+    unit: "+",
+    progress: 100,
   },
   {
     icon: <Briefcase className="h-10 w-10 text-primary" />,
     label: "Projects Completed",
-    value: 120,
+    value: 250,
     unit: "+",
-    progress: 95,
-    progressColor: "bg-green-500",
+    progress: 100,
   },
   {
-    icon: <Users className="h-10 w-10 text-primary" />,
-    label: "Total Clients",
-    value: 50,
-    unit: "+",
-    progress: 90,
-    progressColor: "bg-blue-500",
+    icon: <Star className="h-10 w-10 text-primary" />,
+    label: "Client Satisfaction",
+    value: 95,
+    unit: "%",
+    progress: 95,
   },
 ];
 
