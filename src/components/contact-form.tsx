@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -20,13 +20,14 @@ import { Loader2, Check } from "lucide-react";
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
-  interest: z.string().optional(),
+  phone: z.string().optional(),
+  subject: z.string().min(2, "Subject must be at least 2 characters."),
   message: z.string().min(10, "Message must be at least 10 characters long."),
 });
 
 type FormData = z.infer<typeof contactFormSchema>;
 
-type SubmissionStatus = "idle" | "loading" | "success";
+type SubmissionStatus = "idle" | "loading" | "success" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<SubmissionStatus>("idle");
@@ -38,34 +39,68 @@ export function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
-      interest: "",
+      phone: "",
+      subject: "",
       message: "",
     },
   });
 
   async function onSubmit(data: FormData) {
     setStatus("loading");
-    // In a static site, we can't perform server-side form submission.
-    // We'll simulate a delay and then show a message.
-    setTimeout(() => {
-        setStatus("success");
-        setShowConfetti(true);
-        toast({
-          title: "Message Sent! 🚀",
-          description: "Thanks for reaching out. We'll get back to you soon!",
+
+    const formData = new FormData();
+    formData.append("access_key", "b9ba25db-cd72-4fb6-8820-1d613f55e7b3");
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    if(data.phone) formData.append("phone", data.phone);
+    formData.append("subject", data.subject);
+    formData.append("message", data.message);
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
         });
-        setTimeout(() => {
-            setShowConfetti(false);
-            setStatus("idle");
-            form.reset();
-        }, 4000);
-    }, 1500);
+
+        const result = await response.json();
+
+        if (result.success) {
+            setStatus("success");
+            setShowConfetti(true);
+            toast({
+              title: "✅ Message sent successfully!",
+              description: "Thanks for reaching out. We'll get back to you soon!",
+            });
+            setTimeout(() => {
+                setShowConfetti(false);
+                setStatus("idle");
+                form.reset();
+            }, 4000);
+        } else {
+            setStatus("error");
+            toast({
+              variant: "destructive",
+              title: "❌ Failed to send message.",
+              description: result.message || "Please try again later.",
+            });
+            setTimeout(() => setStatus("idle"), 3000);
+        }
+    } catch (error) {
+        setStatus("error");
+        toast({
+            variant: "destructive",
+            title: "❌ Failed to send message.",
+            description: "An unexpected error occurred. Please try again later.",
+        });
+        setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   const buttonCopy = {
-    idle: "Let's Talk 🎤",
-    loading: "Submitting...",
+    idle: "Send Message",
+    loading: "Sending...",
     success: "Sent!",
+    error: "Try Again",
   }
 
   return (
@@ -106,12 +141,25 @@ export function ContactForm() {
             />
             <FormField
               control={form.control}
-              name="interest"
+              name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Area of Interest <span className="text-muted-foreground">(Optional)</span></FormLabel>
+                  <FormLabel>Phone Number <span className="text-muted-foreground">(Optional)</span></FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., Web Development" {...field} />
+                    <Input type="tel" placeholder="+1 (555) 123-4567" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="subject"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Subject</FormLabel>
+                  <FormControl>
+                    <Input placeholder="e.g., Project Inquiry" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -134,7 +182,7 @@ export function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={status !== 'idle'} className="w-full relative overflow-hidden">
+            <Button type="submit" disabled={status !== 'idle' && status !== 'error'} className="w-full relative overflow-hidden">
               <AnimatePresence mode="wait">
                  <motion.span
                     key={status}
