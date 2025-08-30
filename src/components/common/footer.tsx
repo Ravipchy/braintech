@@ -116,7 +116,7 @@ export function Footer() {
             {/* About Section */}
             <div className="flex flex-col gap-4">
               <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-                  <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
+                  <Image src="/logo.png" alt="BrainTech Logo" width={175} height={50} />
               </Link>
               <p className="text-muted-foreground text-base">
                 Innovating the Future with Intelligent Technology

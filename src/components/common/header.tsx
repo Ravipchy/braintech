@@ -62,7 +62,7 @@ export function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
+          <Image src="/logo.png" alt="BrainTech Logo" width={175} height={50} />
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => {
@@ -137,7 +137,7 @@ export function Header() {
                   className="flex items-center gap-2 font-bold text-lg"
                   onClick={closeMobileMenu}
                 >
-                  <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
+                  <Image src="/logo.png" alt="BrainTech Logo" width={175} height={50} />
                 </Link>
                 <nav className="flex flex-col gap-1">
                   {navLinks.map((link) => {
@@ -211,5 +211,3 @@ export function Header() {
     </header>
   );
 }
-
-    
