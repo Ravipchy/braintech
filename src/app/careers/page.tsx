@@ -100,12 +100,12 @@ export default function CareersPage() {
               {jobOpenings.map((job) => (
                 <AccordionItem value={job.id} key={job.id}>
                   <AccordionTrigger className="hover:bg-accent/50 px-4 rounded-md">
-                    <div className="text-left">
+                    <div className="text-left w-full">
                       <h3 className="text-lg font-semibold text-primary">{job.title}</h3>
-                      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-sm text-muted-foreground mt-2">
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground mt-2">
                         <div className="flex items-center gap-1"><MapPin className="w-4 h-4" />{job.location}</div>
                         <div className="flex items-center gap-1"><Clock className="w-4 h-4" />{job.type}</div>
-                        <div className="flex items-center gap-1"><CalendarDays className="w-4 h-4" />Last Date to Apply: {job.lastDateToApply}</div>
+                        <div className="flex items-center gap-1"><CalendarDays className="w-4 h-4" />{job.lastDateToApply}</div>
                       </div>
                     </div>
                   </AccordionTrigger>

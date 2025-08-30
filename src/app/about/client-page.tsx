@@ -123,34 +123,8 @@ export function AboutClientPage() {
                 </p>
             </AnimatedOnScroll>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {values.slice(0, 3).map((value, index) => (
+                {values.map((value, index) => (
                     <AnimatedOnScroll key={value.title} animation="fadeInUp" delay={index * 0.1}>
-                         <motion.div
-                            whileHover={{ scale: 1.05, y: -5 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                            className="group relative h-full"
-                          >
-                            <Card className="relative text-center funky-shadow transition-all duration-300 flex flex-col h-full">
-                                <CardHeader>
-                                    <motion.div 
-                                      whileHover={{ scale: 1.2, rotate: 10 }}
-                                      transition={{ type: "spring", stiffness: 300 }}
-                                      className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                                        {value.icon}
-                                    </motion.div>
-                                    <CardTitle className="mt-6">{value.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">{value.description}</p>
-                                </CardContent>
-                            </Card>
-                         </motion.div>
-                    </AnimatedOnScroll>
-                ))}
-            </div>
-             <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-2 md:w-2/3 mx-auto">
-                {values.slice(3).map((value, index) => (
-                    <AnimatedOnScroll key={value.title} animation="fadeInUp" delay={(index + 3) * 0.1}>
                          <motion.div
                             whileHover={{ scale: 1.05, y: -5 }}
                             transition={{ type: "spring", stiffness: 400, damping: 15 }}

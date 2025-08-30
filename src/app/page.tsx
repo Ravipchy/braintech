@@ -277,7 +277,7 @@ export default function Home() {
                               <span>{post.readingTime}</span>
                            </div>
                         </div>
-                        <CardTitle className="text-xl h-14 line-clamp-2 pt-2">
+                        <CardTitle className="text-xl min-h-[3.5rem] line-clamp-2 pt-2">
                           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                         </CardTitle>
                       </CardHeader>
