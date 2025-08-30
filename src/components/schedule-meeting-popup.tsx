@@ -46,17 +46,37 @@ export function ScheduleMeetingPopup({ isOpen, onOpenChange }: ScheduleMeetingPo
 
   async function onSubmit(data: FormData) {
     setLoading(true);
-    // In a static site, we can't perform server-side form submission.
-    // We'll simulate a delay and then show a message.
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/schedule-meeting', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Something went wrong.');
+      }
+      
+      toast({
+        title: "Meeting Scheduled!",
+        description: "Your meeting has been scheduled. We'll be in touch soon.",
+      });
+
+      form.reset();
+      onOpenChange(false);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred.';
       toast({
         variant: "destructive",
-        title: "Feature Unavailable",
-        description: "Scheduling a meeting requires a server and is not available in this static version of the site.",
+        title: "Scheduling Failed",
+        description: errorMessage,
       });
+    } finally {
       setLoading(false);
-      onOpenChange(false); // Close the dialog
-    }, 1000);
+    }
   }
 
   const handleClose = (open: boolean) => {
