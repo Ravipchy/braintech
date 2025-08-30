@@ -10,8 +10,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: {
-    default: 'BrainTech Redesign',
-    template: '%s | BrainTech Redesign',
+    default: 'BrainTech Technology',
+    template: '%s | BrainTech Technology',
   },
   description: 'A modern, responsive, and user-friendly interface for BrainTech Technology.',
 };
