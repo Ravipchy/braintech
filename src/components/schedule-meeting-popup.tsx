@@ -23,7 +23,7 @@ import { Calendar as CalendarIcon, CheckCircle, Loader2 } from "lucide-react";
 const meetingFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().optional(),
+  phone: z.string().min(1, { message: "Phone number is required." }),
   datetime: z.date({ required_error: "Please select a date and time." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
@@ -46,17 +46,47 @@ export function ScheduleMeetingPopup({ isOpen, onOpenChange }: ScheduleMeetingPo
 
   async function onSubmit(data: FormData) {
     setLoading(true);
-    // In a static site, we can't perform server-side verification.
-    // We'll simulate a delay and then show a success message.
-    setTimeout(() => {
-      toast({
-        title: "Meeting Scheduled!",
-        description: "Your meeting has been scheduled. We'll be in touch soon.",
+    
+    const formData = new FormData();
+    formData.append("access_key", "b9ba25db-cd72-4fb6-8820-1d613f55e7b3");
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("meeting_date", format(data.datetime, 'yyyy-MM-dd'));
+    formData.append("message", data.message);
+    formData.append("subject", `New Meeting Request from ${data.name}`);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "✅ Meeting request submitted successfully!",
+          description: "We'll be in touch soon to confirm your appointment.",
+        });
+        form.reset();
+        onOpenChange(false);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "❌ Submission failed.",
+          description: result.message || "Please try again later.",
+        });
+      }
+    } catch (error) {
+       toast({
+          variant: "destructive",
+          title: "❌ Submission failed.",
+          description: "An unexpected error occurred. Please try again later.",
+        });
+    } finally {
       setLoading(false);
-      form.reset();
-      onOpenChange(false);
-    }, 1500);
+    }
   }
 
   const handleClose = (open: boolean) => {
@@ -113,7 +143,7 @@ export function ScheduleMeetingPopup({ isOpen, onOpenChange }: ScheduleMeetingPo
                         name="phone"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Phone Number <span className="text-muted-foreground">(Optional)</span></FormLabel>
+                            <FormLabel>Phone Number</FormLabel>
                             <FormControl><Input type="tel" placeholder="(123) 456-7890" {...field} /></FormControl>
                             <FormMessage />
                             </FormItem>
@@ -156,7 +186,7 @@ export function ScheduleMeetingPopup({ isOpen, onOpenChange }: ScheduleMeetingPo
                         name="message"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Message / Notes</FormLabel>
+                            <FormLabel>Message / Project Details</FormLabel>
                             <FormControl>
                                 <Textarea
                                 placeholder="Please provide any details about your project or what you'd like to discuss."
