@@ -119,7 +119,7 @@ export function Footer() {
                   <Image src="/logo.png" alt="BrainTech Logo" width={140} height={40} />
               </Link>
               <p className="text-muted-foreground text-base">
-                Innovating the Future with Intelligent Technology.
+                Innovating the Future with Intelligent Technology
               </p>
             </div>
             
