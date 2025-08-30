@@ -14,7 +14,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "../theme-toggle";
 import {
@@ -124,8 +124,14 @@ export function Header() {
                 <span className="sr-only">Open navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-background text-foreground">
-              <div className="flex flex-col gap-6 p-6">
+            <SheetContent side="right" className="bg-background text-foreground p-0">
+               <SheetHeader className="p-6">
+                <SheetTitle className="sr-only">Main Menu</SheetTitle>
+                <SheetDescription className="sr-only">
+                  Primary navigation for the BrainTech website.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="flex flex-col gap-6 px-6 pb-6">
                 <Link
                   href="/"
                   className="flex items-center gap-2 font-bold text-lg"
@@ -205,3 +211,5 @@ export function Header() {
     </header>
   );
 }
+
+    
